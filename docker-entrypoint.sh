@@ -3,25 +3,19 @@ set -ex
 
 CONFIGPATH="/config"
 
-# Set Server Name
-if [ ! -z "$SERVER_NAME" ]; then
-    sed -i -e "s|ServerName .*|ServerName $SERVER_NAME|" "$HTTPD_PREFIX/conf/custom/httpd-ssl.conf"
-fi
-
-
 # Copy and link config files
 if [ ! -e "$CONFIGPATH/httpd.conf" ]; then
-	cp $HTTPD_PREFIX/conf/httpd.conf $CONFIGPATH/
+	cp $HTTPD_PREFIX/conf/custom/httpd.conf $CONFIGPATH/
 fi
 if [ ! -e "/config/httpd-dav.conf" ]; then
-	cp $HTTPD_PREFIX/conf/extra/httpd-dav.conf $CONFIGPATH/
+	cp $HTTPD_PREFIX/conf/custom/httpd-dav.conf $CONFIGPATH/
 fi
 if [ ! -e "/config/httpd-ssl.conf" ]; then
-	cp $HTTPD_PREFIX/conf/extra/httpd-ssl.conf $CONFIGPATH/
+	cp $HTTPD_PREFIX/conf/custom/httpd-ssl.conf $CONFIGPATH/
 fi
 ln -sfn $CONFIGPATH/httpd.conf $HTTPD_PREFIX/conf/httpd.conf
-ln -sfn $CONFIGPATH/httpd-dav.conf $HTTPD_PREFIX/conf/extra/httpd-dav.conf
-ln -sfn $CONFIGPATH/httpd-ssl.conf $HTTPD_PREFIX/conf/extra/httpd-ssl.conf
+#ln -sfn $CONFIGPATH/httpd-dav.conf $HTTPD_PREFIX/conf/custom/httpd-dav.conf
+#ln -sfn $CONFIGPATH/httpd-ssl.conf $HTTPD_PREFIX/conf/custom/httpd-ssl.conf
 
 
 # Set password hash
@@ -32,16 +26,21 @@ else
 fi
 
 
-# If not exist, generate a self-signed certificate pair.
-if [ ! -e $CONFIGPATH/key.pem ] || [ ! -e $CONFIGPATH/cert.pem ]; then
-	openssl req -x509 -newkey rsa:4096 -days 9999 -nodes \
-	  -keyout $CONFIGPATH/key.pem \
-	  -out $CONFIGPATH/cert.pem \
-	  -subj "/CN=${SERVER_NAME:-selfsigned}"
-else
-	ln -sfn $CONFIGPATH/key.pem /usr/local/apache2/conf/server.key
-	ln -sfn $CONFIGPATH/cert.pem /usr/local/apache2/conf/server.crt
+# Set Server Name
+if [ ! -z "$SERVER_NAME" ]; then
+    sed -i -e "s|ServerName .*|ServerName $SERVER_NAME|" "$CONFIGPATH/httpd-ssl.conf"
 fi
+
+
+# If doesn't exist, generate a self-signed certificate pair.
+if [ ! -e $CONFIGPATH/server.key ] || [ ! -e $CONFIGPATH/server.crt ]; then
+	openssl req -x509 -newkey rsa:4096 -days 9999 -nodes \
+	  -keyout $CONFIGPATH/server.key \
+	  -out $CONFIGPATH/server.crt \
+	  -subj "/CN=${SERVER_NAME:-selfsigned}"
+fi
+ln -sfn $CONFIGPATH/server.key /usr/local/apache2/conf/server.key
+ln -sfn $CONFIGPATH/server.crt /usr/local/apache2/conf/server.crt
 
 
 exec "$@"

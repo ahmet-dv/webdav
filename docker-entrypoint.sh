@@ -14,8 +14,6 @@ if [ ! -e "/config/httpd-ssl.conf" ]; then
 	cp $HTTPD_PREFIX/conf/custom/httpd-ssl.conf $CONFIGPATH/
 fi
 ln -sfn $CONFIGPATH/httpd.conf $HTTPD_PREFIX/conf/httpd.conf
-#ln -sfn $CONFIGPATH/httpd-dav.conf $HTTPD_PREFIX/conf/custom/httpd-dav.conf
-#ln -sfn $CONFIGPATH/httpd-ssl.conf $HTTPD_PREFIX/conf/custom/httpd-ssl.conf
 
 
 # Set password hash

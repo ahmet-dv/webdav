@@ -10,7 +10,7 @@ HTTPS is the only protocol enabled. Default authentication is Basic.
 
 There are two volumes which need to be defined while starting a service.
 
-- /config : The folder where configuration files are stored.
+- /config : The folder where configuration files are stored. If not defined, this folder will be created in the container.
 - /dav/data : The path to the webdav data folder.
 
 WebDAV server can be accessed using the /webdav subdirectory.

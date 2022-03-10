@@ -6,6 +6,17 @@ This image is based on the [Apache HTTP Server] image. It can be used on any arc
 
 HTTPS is the only protocol enabled. Default authentication is Basic.
 
+### Volumes
+
+There are two volumes which need to be defined while starting a service.
+
+- /config : The folder where configuration files are stored.
+- /dav/data : The path to the webdav data folder.
+
+WebDAV server can be accessed using the /webdav subfolder.
+
+    e.g., https://www.example.com/webdav
+
 ### Apache Server Configuration
 
 When the container is first created, configuration files are copied to the /config path. The files can be freely modified. It may be necessary to restart the container after a change.
@@ -25,7 +36,7 @@ These files are then copied to /config folder. If you want to use your own certi
 
 ### Environment variables
 
-Below environment variables are optional. If not defined, default values are used.
+Environment variables are optional. If not defined, default values are used.
 
 ```
 SERVER_NAME : The default is "localhost".
@@ -68,12 +79,9 @@ services:
       - /srv/data: /dav/data
 ```
 
-WebDAV server can be accessed using the /webdav subfolder.
-
-    e.g., https://localhost/webdav
-
-### Source Code
+### Source
 
 https://github.com/ahmet-dv/webdav
+https://hub.docker.com/r/dockdv/webdav
 
 [Apache HTTP Server]: <https://hub.docker.com/_/httpd>

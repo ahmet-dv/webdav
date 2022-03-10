@@ -13,7 +13,7 @@ There are two volumes which need to be defined while starting a service.
 - /config : The folder where configuration files are stored.
 - /dav/data : The path to the webdav data folder.
 
-WebDAV server can be accessed using the /webdav subfolder.
+WebDAV server can be accessed using the /webdav subdirectory.
 
     e.g., https://www.example.com/webdav
 

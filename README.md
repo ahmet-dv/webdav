@@ -52,8 +52,8 @@ docker run -d \
 
 ##### - Docker Compose:
 <br />
-__docker pull dockdv/webdav__
-__docker-compose up -d webdavr__
+**docker pull dockdv/webdav**
+**docker-compose up -d webdavr**
 
 
 ```

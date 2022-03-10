@@ -51,10 +51,6 @@ docker run -d \
 ```
 
 ##### - Docker Compose:
-<br />
-**docker pull dockdv/webdav**
-**docker-compose up -d webdavr**
-
 
 ```
 version: '3'

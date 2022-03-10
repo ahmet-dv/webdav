@@ -79,7 +79,7 @@ services:
       - /srv/data: /dav/data
 ```
 
-If macvlan network is preferred, docker container can be accessed without any port forwarding requirement. This option should be carefully considered as all ports will be open.
+If macvlan network is preferred, docker container can be accessed without the requirement of port forwarding. This option should be carefully considered as all ports will be open.
 
 ```
 version: '3.9'

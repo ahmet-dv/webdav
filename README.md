@@ -2,7 +2,7 @@
 
 ---
 
-This image is based on the [Apache HTTP Server] image. It can be used on any architecture that the httpd image supports.
+This image is based on the [Apache HTTP Server] image.
 
 HTTPS is the only protocol enabled. Default authentication is Basic.
 

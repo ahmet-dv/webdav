@@ -6,6 +6,7 @@ This image is based on the [Apache HTTP Server] image. It can be used on any arc
 
 HTTPS is the only protocol enabled. Default authentication is Basic.
 
+
 ### Volumes
 
 There are two volumes which need to be defined while starting a service.

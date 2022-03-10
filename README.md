@@ -36,7 +36,6 @@ PASSWORD : The default password is "webdav".
 ### Usage
 
 ##### - Docker Run:
-.
 ```
 docker run -d \
     -v /srv/config:/config \

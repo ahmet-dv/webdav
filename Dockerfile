@@ -4,7 +4,8 @@ COPY docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
 COPY config/ conf/
 RUN set -ex; \
     apt-get update && apt-get install -y openssl; \
-	mkdir -p "/dav/data"; \
+	mkdir -p "/dav"; \
+	mkdir -p "/config"; \
 	touch "/dav/DavLock"; \
 	chown -R www-data:www-data "/dav";
 EXPOSE 443/tcp

@@ -1,0 +1,19 @@
+services:
+  webdav:
+    image: my-webdav-image  # Use the name of the image you built
+    container_name: webdav-server
+    ports:
+      - "80:80"
+      - "443:443"
+    environment:
+      WEBDAV_USER: "admin"        # Default WebDAV user
+      WEBDAV_PASSWORD: "password" # Default WebDAV password
+      USERS: "user1:pass1,user2:pass2" # Optional: Add multiple users (comma-separated)
+      SERVER_NAME: "localhost"    # Optional: Server name for SSL
+    volumes:
+      - ./config/apache:/config/apache               # Persistent storage for Apache configuration files
+      - ./config/ssl:/config/ssl                     # Persistent storage for SSL certificates
+      - ./config/htpasswd:/config/htpasswd           # Persistent storage for .htpasswd
+      - ./data:/data                                 # Persistent storage for WebDAV data (user files)
+      - ./config/web:/config/web                     # Persistent storage for web files (main page, index.html)
+    restart: unless-stopped  # Automatically restart the container if it crashes

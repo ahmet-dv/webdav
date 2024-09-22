@@ -63,7 +63,6 @@ docker run -d \
 ##### - Docker Compose:
 
 ```
-version: '3.9'
 services:
   webdav:
     image: dockdv/webdav
@@ -75,14 +74,13 @@ services:
       USERNAME: webdav
       PASSWORD: webdav
     volumes:
-      - /srv/config: /config
-      - /srv/data: /dav/data
+      - ./config: /config
+      - ./data: /dav/data
 ```
 
 If macvlan network is preferred, docker container can be accessed without the requirement of port forwarding. This option should be carefully considered as all ports will be open.
 
 ```
-version: '3.9'
 services:
   webdav:
     image: dockdv/webdav
@@ -92,8 +90,8 @@ services:
       USERNAME: webdav
       PASSWORD: webdav
     volumes:
-      - /srv/config: /config
-      - /srv/data: /dav/data
+      - ./config: /config
+      - ./data: /dav/data
     networks:
       macvlan:
         ipv4_address: 10.100.10.10

@@ -15,7 +15,8 @@ IMAGE_NAME="$DOCKER_USERNAME/$DOCKER_REPO_NAME"
 
 # Step 1: Build the Docker image with one base tag
 echo "Building the Docker image..."
-docker build -t "$IMAGE_NAME:${IMAGE_TAGS[0]}" .
+#docker build -t "$IMAGE_NAME:${IMAGE_TAGS[0]}" .
+docker build --no-cache --progress=plain -t "$IMAGE_NAME:${IMAGE_TAGS[0]}" . 2>&1 | tee build.log
 
 # Step 2: Login to DockerHub (optional, if you're already logged in, you can skip this)
 echo "Logging in to DockerHub..."
@@ -33,3 +34,4 @@ done
 
 # Step 4: Confirm the image was pushed successfully with all tags
 echo "Docker image pushed successfully with tags: ${IMAGE_TAGS[*]}"
+

@@ -1,6 +1,6 @@
 services:
   webdav:
-    image: my-webdav-image  # Use the name of the image you built
+    image: dockdv/webdav  # Use the name of the image you built
     container_name: webdav-server
     ports:
       - "80:80"

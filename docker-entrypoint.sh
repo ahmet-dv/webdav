@@ -92,9 +92,9 @@ if [ -n "$USERS" ]; then
             echo "Error: Invalid user format for $user_pass. Expected format: username:password"
         fi
     done
-else
-    echo "Adding default user: webdav with password: webdav"
-    htpasswd -B -b -c "$HTTPD_PASSWD_PATH" "webdav" "webdav"
+#else
+#    echo "Adding default user: webdav with password: webdav"
+#    htpasswd -B -b -c "$HTTPD_PASSWD_PATH" "webdav" "webdav"
 fi
 
 # Set Server Name if provided

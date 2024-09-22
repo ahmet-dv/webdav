@@ -1,0 +1,31 @@
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 1.99kB done
+#1 DONE 0.0s
+
+#2 [auth] library/httpd:pull token for registry-1.docker.io
+#2 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/library/httpd:2.4
+#3 DONE 0.9s
+
+#4 [internal] load .dockerignore
+#4 transferring context: 2B done
+#4 DONE 0.0s
+
+#5 [ 1/14] FROM docker.io/library/httpd:2.4@sha256:ae1124b8d23ee3fc35d49da35d5c748a2fce318d1f55ce59ccab889d612f8be8
+#5 CACHED
+
+#6 [internal] load build context
+#6 transferring context: 2.04kB done
+#6 DONE 0.0s
+
+#7 [ 2/14] RUN set -ex
+#7 DONE 0.4s
+
+#8 [ 3/14] RUN apt-get update && apt-get install -y apt-transport-https curl lsb-release     && curl -sSLo /usr/share/keyrings/deb.sury.org-php.gpg https://packages.sury.org/php/apt.gpg     && echo "deb [signed-by=/usr/share/keyrings/deb.sury.org-php.gpg] https://packages.sury.org/php/ $(lsb_release -sc) main" > /etc/apt/sources.list.d/php.list     && apt-get update
+#8 0.572 Get:1 http://deb.debian.org/debian bookworm InRelease [151 kB]
+#8 0.745 Get:2 http://deb.debian.org/debian bookworm-updates InRelease [55.4 kB]
+#8 0.921 Get:3 http://deb.debian.org/debian-security bookworm-security InRelease [48.0 kB]
+#8 1.150 Get:4 http://deb.debian.org/debian bookworm/main amd64 Packages [8787 kB]

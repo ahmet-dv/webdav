@@ -26,6 +26,9 @@ COPY ./config/httpd.conf /usr/local/apache2/conf/custom/httpd.conf
 COPY ./config/httpd-dav.conf /usr/local/apache2/conf/custom/httpd-dav.conf
 COPY ./config/httpd-ssl.conf /usr/local/apache2/conf/custom/httpd-ssl.conf
 
+# Copy the main page (index.html) into a temporary location inside the container
+COPY ./web/index.html /tmp/index.html
+
 # Copy the docker-entrypoint.sh script into the container
 COPY ./docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
 

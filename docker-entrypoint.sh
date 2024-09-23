@@ -121,4 +121,12 @@ ln -sfn "$SSL_PATH/server.key" "$APACHE_PREFIX/conf/server.key"
 ln -sfn "$SSL_PATH/server.crt" "$APACHE_PREFIX/conf/server.crt"
 
 # Start Apache in the foreground (default command)
-exec "$@"
+#exec "$@"
+#exec httpd -e debug -DFOREGROUND
+
+# Start Apache in the background
+#httpd -k start
+httpd -e debug -DFOREGROUND &
+
+# Keep the shell running interactively in the foreground
+exec /bin/bash

@@ -12,14 +12,27 @@ RUN apt-get update && apt-get install -y apt-transport-https curl lsb-release \
     && apt-get update
 
 # Install PHP 8.3 and necessary extensions, including Apache PHP module
-RUN apt-get install -y php8.3 php8.3-cli php8.3-bz2 php8.3-curl php8.3-mbstring php8.3-intl libapache2-mod-php8.3 \
-    && rm -rf /var/lib/apt/lists/*
+RUN apt-get install -y php8.3 php8.3-cli php8.3-bz2 php8.3-curl php8.3-mbstring php8.3-intl 
+#RUN apt-get install -y libapache2-mod-php8.3 
+RUN apt-get install -y php8.3-fpm
+
+RUN rm -rf /var/lib/apt/lists/*
+
+RUN a2dismod php8.3 
+RUN a2dismod mpm_prefork
+
+RUN a2enmod mpm_event
+RUN a2enconf php8.3-fpm
 
 # Enable PHP 8.3 module in Apache
-RUN a2enmod php8.3
+# RUN a2enmod php8.3
 
 # Enable WebDAV and other Apache modules
-RUN a2enmod dav dav_fs auth_digest
+RUN a2enmod dav dav_fs auth_digest authz_core
+
+
+# Enable MPM Prefork module in Apache (for mod_php compatibility)
+# RUN a2enmod mpm_prefork
 
 # Copy custom WebDAV configurations
 COPY ./config/httpd.conf /usr/local/apache2/conf/custom/httpd.conf

@@ -1,775 +1,568 @@
 #0 building with "default" instance using docker driver
 
 #1 [internal] load build definition from Dockerfile
-#1 transferring dockerfile: 2.25kB done
+#1 transferring dockerfile: 2.40kB done
 #1 DONE 0.0s
 
-#2 [auth] library/httpd:pull token for registry-1.docker.io
-#2 DONE 0.0s
+#2 [internal] load metadata for docker.io/library/httpd:2.4
+#2 DONE 0.5s
 
-#3 [internal] load metadata for docker.io/library/httpd:2.4
-#3 DONE 0.9s
+#3 [internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.0s
 
-#4 [internal] load .dockerignore
-#4 transferring context: 2B done
-#4 DONE 0.0s
+#4 [ 1/16] FROM docker.io/library/httpd:2.4@sha256:ae1124b8d23ee3fc35d49da35d5c748a2fce318d1f55ce59ccab889d612f8be8
+#4 CACHED
 
-#5 [ 1/19] FROM docker.io/library/httpd:2.4@sha256:ae1124b8d23ee3fc35d49da35d5c748a2fce318d1f55ce59ccab889d612f8be8
-#5 CACHED
+#5 [internal] load build context
+#5 transferring context: 708B done
+#5 DONE 0.0s
 
-#6 [internal] load build context
-#6 transferring context: 708B done
-#6 DONE 0.0s
+#6 [ 2/16] RUN set -ex
+#6 DONE 0.3s
 
-#7 [ 2/19] RUN set -ex
-#7 DONE 0.4s
+#7 [ 3/16] RUN echo exit 0 > /usr/sbin/policy-rc.d
+#7 DONE 0.5s
 
-#8 [ 3/19] RUN apt-get update && apt-get install -y apt-transport-https curl lsb-release     && curl -sSLo /usr/share/keyrings/deb.sury.org-php.gpg https://packages.sury.org/php/apt.gpg     && echo "deb [signed-by=/usr/share/keyrings/deb.sury.org-php.gpg] https://packages.sury.org/php/ $(lsb_release -sc) main" > /etc/apt/sources.list.d/php.list     && apt-get update
-#8 0.504 Get:1 http://deb.debian.org/debian bookworm InRelease [151 kB]
-#8 0.582 Get:2 http://deb.debian.org/debian bookworm-updates InRelease [55.4 kB]
-#8 0.612 Get:3 http://deb.debian.org/debian-security bookworm-security InRelease [48.0 kB]
-#8 0.698 Get:4 http://deb.debian.org/debian bookworm/main amd64 Packages [8787 kB]
-#8 1.454 Get:5 http://deb.debian.org/debian bookworm-updates/main amd64 Packages [2468 B]
-#8 1.454 Get:6 http://deb.debian.org/debian-security bookworm-security/main amd64 Packages [182 kB]
-#8 2.205 Fetched 9226 kB in 2s (5187 kB/s)
-#8 2.205 Reading package lists...
-#8 2.570 Reading package lists...
-#8 2.935 Building dependency tree...
-#8 3.019 Reading state information...
-#8 3.136 The following NEW packages will be installed:
-#8 3.136   apt-transport-https curl lsb-release
-#8 3.200 0 upgraded, 3 newly installed, 0 to remove and 1 not upgraded.
-#8 3.200 Need to get 346 kB of archives.
-#8 3.200 After this operation, 553 kB of additional disk space will be used.
-#8 3.200 Get:1 http://deb.debian.org/debian bookworm/main amd64 apt-transport-https all 2.6.1 [25.2 kB]
-#8 3.229 Get:2 http://deb.debian.org/debian bookworm/main amd64 curl amd64 7.88.1-10+deb12u7 [315 kB]
-#8 3.295 Get:3 http://deb.debian.org/debian bookworm/main amd64 lsb-release all 12.0-1 [6416 B]
-#8 3.415 debconf: delaying package configuration, since apt-utils is not installed
-#8 3.431 Fetched 346 kB in 0s (2244 kB/s)
-#8 3.451 Selecting previously unselected package apt-transport-https.
-#8 3.451 (Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 6791 files and directories currently installed.)
-#8 3.462 Preparing to unpack .../apt-transport-https_2.6.1_all.deb ...
-#8 3.481 Unpacking apt-transport-https (2.6.1) ...
-#8 3.530 Selecting previously unselected package curl.
-#8 3.534 Preparing to unpack .../curl_7.88.1-10+deb12u7_amd64.deb ...
-#8 3.540 Unpacking curl (7.88.1-10+deb12u7) ...
-#8 3.614 Selecting previously unselected package lsb-release.
-#8 3.618 Preparing to unpack .../lsb-release_12.0-1_all.deb ...
-#8 3.624 Unpacking lsb-release (12.0-1) ...
-#8 3.679 Setting up apt-transport-https (2.6.1) ...
-#8 3.698 Setting up curl (7.88.1-10+deb12u7) ...
-#8 3.717 Setting up lsb-release (12.0-1) ...
-#8 4.013 Hit:1 http://deb.debian.org/debian bookworm InRelease
-#8 4.026 Hit:2 http://deb.debian.org/debian bookworm-updates InRelease
-#8 4.049 Hit:3 http://deb.debian.org/debian-security bookworm-security InRelease
-#8 4.109 Get:4 https://packages.sury.org/php bookworm InRelease [7551 B]
-#8 4.366 Get:5 https://packages.sury.org/php bookworm/main amd64 Packages [243 kB]
-#8 4.500 Fetched 250 kB in 1s (441 kB/s)
-#8 4.500 Reading package lists...
-#8 DONE 5.0s
+#8 [ 4/16] RUN apt-get update && apt-get install -y apt-transport-https curl lsb-release     && curl -sSLo /usr/share/keyrings/deb.sury.org-php.gpg https://packages.sury.org/php/apt.gpg     && echo "deb [signed-by=/usr/share/keyrings/deb.sury.org-php.gpg] https://packages.sury.org/php/ $(lsb_release -sc) main" > /etc/apt/sources.list.d/php.list     && apt-get update
+#8 0.530 Get:1 http://deb.debian.org/debian bookworm InRelease [151 kB]
+#8 0.744 Get:2 http://deb.debian.org/debian bookworm-updates InRelease [55.4 kB]
+#8 0.909 Get:3 http://deb.debian.org/debian-security bookworm-security InRelease [48.0 kB]
+#8 1.324 Get:4 http://deb.debian.org/debian bookworm/main amd64 Packages [8787 kB]
+#8 258.8 Get:5 http://deb.debian.org/debian bookworm-updates/main amd64 Packages [2468 B]
+#8 258.8 Get:6 http://deb.debian.org/debian-security bookworm-security/main amd64 Packages [182 kB]
+#8 262.9 Fetched 9226 kB in 4min 22s (35.2 kB/s)
+#8 262.9 Reading package lists...
+#8 263.3 Reading package lists...
+#8 263.6 Building dependency tree...
+#8 263.7 Reading state information...
+#8 263.8 The following NEW packages will be installed:
+#8 263.8   apt-transport-https curl lsb-release
+#8 264.9 0 upgraded, 3 newly installed, 0 to remove and 1 not upgraded.
+#8 264.9 Need to get 346 kB of archives.
+#8 264.9 After this operation, 553 kB of additional disk space will be used.
+#8 264.9 Get:1 http://deb.debian.org/debian bookworm/main amd64 apt-transport-https all 2.6.1 [25.2 kB]
+#8 265.0 Get:2 http://deb.debian.org/debian bookworm/main amd64 curl amd64 7.88.1-10+deb12u7 [315 kB]
+#8 273.0 Get:3 http://deb.debian.org/debian bookworm/main amd64 lsb-release all 12.0-1 [6416 B]
+#8 273.1 debconf: delaying package configuration, since apt-utils is not installed
+#8 273.1 Fetched 346 kB in 9s (37.7 kB/s)
+#8 273.1 Selecting previously unselected package apt-transport-https.
+#8 273.1 (Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 6791 files and directories currently installed.)
+#8 273.1 Preparing to unpack .../apt-transport-https_2.6.1_all.deb ...
+#8 273.2 Unpacking apt-transport-https (2.6.1) ...
+#8 273.2 Selecting previously unselected package curl.
+#8 273.2 Preparing to unpack .../curl_7.88.1-10+deb12u7_amd64.deb ...
+#8 273.2 Unpacking curl (7.88.1-10+deb12u7) ...
+#8 273.3 Selecting previously unselected package lsb-release.
+#8 273.3 Preparing to unpack .../lsb-release_12.0-1_all.deb ...
+#8 273.3 Unpacking lsb-release (12.0-1) ...
+#8 273.4 Setting up apt-transport-https (2.6.1) ...
+#8 273.4 Setting up curl (7.88.1-10+deb12u7) ...
+#8 273.4 Setting up lsb-release (12.0-1) ...
+#8 273.7 Hit:1 http://deb.debian.org/debian bookworm InRelease
+#8 273.7 Hit:2 http://deb.debian.org/debian bookworm-updates InRelease
+#8 273.7 Hit:3 http://deb.debian.org/debian-security bookworm-security InRelease
+#8 273.8 Get:4 https://packages.sury.org/php bookworm InRelease [7551 B]
+#8 274.1 Get:5 https://packages.sury.org/php bookworm/main amd64 Packages [243 kB]
+#8 274.2 Fetched 250 kB in 1s (424 kB/s)
+#8 274.2 Reading package lists...
+#8 DONE 274.6s
 
-#9 [ 4/19] RUN apt-get install -y php8.3 php8.3-cli php8.3-bz2 php8.3-curl php8.3-mbstring php8.3-intl
-#9 0.418 Reading package lists...
-#9 0.794 Building dependency tree...
-#9 0.883 Reading state information...
-#9 0.987 The following additional packages will be installed:
-#9 0.987   apache2 apache2-bin apache2-data apache2-utils debsuryorg-archive-keyring
-#9 0.987   libapache2-mod-php8.3 libaprutil1-dbd-sqlite3 libargon2-1 libbsd0 libedit2
-#9 0.987   libgdbm-compat4 libgpm2 liblua5.3-0 libncursesw6 libonig5 libperl5.36
-#9 0.987   libproc2-0 libsodium23 libsqlite3-0 media-types netbase perl
-#9 0.987   perl-modules-5.36 php-common php8.3-common php8.3-opcache php8.3-readline
-#9 0.987   procps psmisc sensible-utils ssl-cert ucf
-#9 0.988 Suggested packages:
-#9 0.988   apache2-doc apache2-suexec-pristine | apache2-suexec-custom www-browser
-#9 0.988   php-pear gpm perl-doc libterm-readline-gnu-perl | libterm-readline-perl-perl
-#9 0.988   make libtap-harness-archive-perl
-#9 1.112 The following NEW packages will be installed:
-#9 1.112   apache2 apache2-bin apache2-data apache2-utils debsuryorg-archive-keyring
-#9 1.112   libapache2-mod-php8.3 libaprutil1-dbd-sqlite3 libargon2-1 libbsd0 libedit2
-#9 1.112   libgdbm-compat4 libgpm2 liblua5.3-0 libncursesw6 libonig5 libperl5.36
-#9 1.113   libproc2-0 libsodium23 libsqlite3-0 media-types netbase perl
-#9 1.113   perl-modules-5.36 php-common php8.3 php8.3-bz2 php8.3-cli php8.3-common
-#9 1.113   php8.3-curl php8.3-intl php8.3-mbstring php8.3-opcache php8.3-readline
-#9 1.113   procps psmisc sensible-utils ssl-cert ucf
-#9 1.181 0 upgraded, 38 newly installed, 0 to remove and 2 not upgraded.
-#9 1.181 Need to get 17.4 MB of archives.
-#9 1.181 After this operation, 88.3 MB of additional disk space will be used.
-#9 1.181 Get:1 http://deb.debian.org/debian bookworm/main amd64 perl-modules-5.36 all 5.36.0-7+deb12u1 [2815 kB]
-#9 1.278 Get:2 https://packages.sury.org/php bookworm/main amd64 debsuryorg-archive-keyring all 2024.02.05+0~20240205.1+debian12~1.gbp343037 [4412 B]
-#9 1.322 Get:3 https://packages.sury.org/php bookworm/main amd64 php-common all 2:94+0~20240205.51+debian12~1.gbp6faa2e [12.9 kB]
-#9 1.333 Get:4 https://packages.sury.org/php bookworm/main amd64 php8.3-common amd64 8.3.11-1+0~20240902.42+debian12~1.gbp1a56f8 [712 kB]
-#9 1.491 Get:5 http://deb.debian.org/debian bookworm/main amd64 libgdbm-compat4 amd64 1.23-3 [48.2 kB]
-#9 1.495 Get:6 http://deb.debian.org/debian bookworm/main amd64 libperl5.36 amd64 5.36.0-7+deb12u1 [4218 kB]
-#9 1.940 Get:7 http://deb.debian.org/debian bookworm/main amd64 perl amd64 5.36.0-7+deb12u1 [239 kB]
-#9 1.948 Get:8 https://packages.sury.org/php bookworm/main amd64 php8.3-opcache amd64 8.3.11-1+0~20240902.42+debian12~1.gbp1a56f8 [346 kB]
-#9 1.957 Get:9 http://deb.debian.org/debian bookworm/main amd64 libsqlite3-0 amd64 3.40.1-2 [837 kB]
-#9 1.977 Get:10 http://deb.debian.org/debian bookworm/main amd64 libaprutil1-dbd-sqlite3 amd64 1.6.3-1 [13.6 kB]
-#9 1.977 Get:11 http://deb.debian.org/debian bookworm/main amd64 liblua5.3-0 amd64 5.3.6-2 [123 kB]
-#9 1.979 Get:12 http://deb.debian.org/debian bookworm/main amd64 apache2-bin amd64 2.4.62-1~deb12u1 [1385 kB]
-#9 2.098 Get:13 http://deb.debian.org/debian bookworm/main amd64 apache2-data all 2.4.62-1~deb12u1 [160 kB]
-#9 2.112 Get:14 http://deb.debian.org/debian bookworm/main amd64 apache2-utils amd64 2.4.62-1~deb12u1 [210 kB]
-#9 2.130 Get:15 http://deb.debian.org/debian bookworm/main amd64 media-types all 10.0.0 [26.1 kB]
-#9 2.133 Get:16 http://deb.debian.org/debian bookworm/main amd64 libncursesw6 amd64 6.4-4 [134 kB]
-#9 2.136 Get:17 https://packages.sury.org/php bookworm/main amd64 php8.3-readline amd64 8.3.11-1+0~20240902.42+debian12~1.gbp1a56f8 [12.5 kB]
-#9 2.142 Get:18 https://packages.sury.org/php bookworm/main amd64 php8.3-cli amd64 8.3.11-1+0~20240902.42+debian12~1.gbp1a56f8 [1770 kB]
-#9 2.145 Get:19 http://deb.debian.org/debian bookworm/main amd64 libproc2-0 amd64 2:4.0.2-3 [62.8 kB]
-#9 2.151 Get:20 http://deb.debian.org/debian bookworm/main amd64 procps amd64 2:4.0.2-3 [709 kB]
-#9 2.216 Get:21 http://deb.debian.org/debian bookworm/main amd64 apache2 amd64 2.4.62-1~deb12u1 [223 kB]
-#9 2.237 Get:22 http://deb.debian.org/debian bookworm/main amd64 netbase all 6.4 [12.8 kB]
-#9 2.238 Get:23 http://deb.debian.org/debian bookworm/main amd64 sensible-utils all 0.0.17+nmu1 [19.0 kB]
-#9 2.239 Get:24 http://deb.debian.org/debian bookworm/main amd64 ucf all 3.0043+nmu1 [55.2 kB]
-#9 2.244 Get:25 http://deb.debian.org/debian bookworm/main amd64 libbsd0 amd64 0.11.7-2 [117 kB]
-#9 2.255 Get:26 http://deb.debian.org/debian bookworm/main amd64 libedit2 amd64 3.1-20221030-2 [93.0 kB]
-#9 2.264 Get:27 http://deb.debian.org/debian bookworm/main amd64 psmisc amd64 23.6-1 [259 kB]
-#9 2.288 Get:28 http://deb.debian.org/debian bookworm/main amd64 libargon2-1 amd64 0~20171227-0.3+deb12u1 [19.4 kB]
-#9 2.290 Get:29 http://deb.debian.org/debian bookworm/main amd64 libsodium23 amd64 1.0.18-1 [161 kB]
-#9 2.306 Get:30 http://deb.debian.org/debian bookworm/main amd64 libgpm2 amd64 1.20.7-10+b1 [14.2 kB]
-#9 2.306 Get:31 http://deb.debian.org/debian bookworm/main amd64 libonig5 amd64 6.9.8-1 [188 kB]
-#9 2.323 Get:32 http://deb.debian.org/debian bookworm/main amd64 ssl-cert all 1.1.2 [21.1 kB]
-#9 2.651 Get:33 https://packages.sury.org/php bookworm/main amd64 libapache2-mod-php8.3 amd64 8.3.11-1+0~20240902.42+debian12~1.gbp1a56f8 [1712 kB]
-#9 2.789 Get:34 https://packages.sury.org/php bookworm/main amd64 php8.3 all 8.3.11-1+0~20240902.42+debian12~1.gbp1a56f8 [31.5 kB]
-#9 2.791 Get:35 https://packages.sury.org/php bookworm/main amd64 php8.3-bz2 amd64 8.3.11-1+0~20240902.42+debian12~1.gbp1a56f8 [10.6 kB]
-#9 2.792 Get:36 https://packages.sury.org/php bookworm/main amd64 php8.3-curl amd64 8.3.11-1+0~20240902.42+debian12~1.gbp1a56f8 [37.0 kB]
-#9 2.796 Get:37 https://packages.sury.org/php bookworm/main amd64 php8.3-intl amd64 8.3.11-1+0~20240902.42+debian12~1.gbp1a56f8 [138 kB]
-#9 2.805 Get:38 https://packages.sury.org/php bookworm/main amd64 php8.3-mbstring amd64 8.3.11-1+0~20240902.42+debian12~1.gbp1a56f8 [443 kB]
-#9 2.933 debconf: delaying package configuration, since apt-utils is not installed
-#9 2.951 Fetched 17.4 MB in 2s (10.1 MB/s)
-#9 2.984 Selecting previously unselected package perl-modules-5.36.
-#9 2.984 (Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 6809 files and directories currently installed.)
-#9 2.997 Preparing to unpack .../00-perl-modules-5.36_5.36.0-7+deb12u1_all.deb ...
-#9 3.017 Unpacking perl-modules-5.36 (5.36.0-7+deb12u1) ...
-#9 3.299 Selecting previously unselected package libgdbm-compat4:amd64.
-#9 3.303 Preparing to unpack .../01-libgdbm-compat4_1.23-3_amd64.deb ...
-#9 3.315 Unpacking libgdbm-compat4:amd64 (1.23-3) ...
-#9 3.386 Selecting previously unselected package libperl5.36:amd64.
-#9 3.390 Preparing to unpack .../02-libperl5.36_5.36.0-7+deb12u1_amd64.deb ...
-#9 3.397 Unpacking libperl5.36:amd64 (5.36.0-7+deb12u1) ...
-#9 3.742 Selecting previously unselected package perl.
-#9 3.746 Preparing to unpack .../03-perl_5.36.0-7+deb12u1_amd64.deb ...
-#9 3.764 Unpacking perl (5.36.0-7+deb12u1) ...
-#9 3.849 Selecting previously unselected package libsqlite3-0:amd64.
-#9 3.853 Preparing to unpack .../04-libsqlite3-0_3.40.1-2_amd64.deb ...
-#9 3.861 Unpacking libsqlite3-0:amd64 (3.40.1-2) ...
-#9 3.955 Selecting previously unselected package libaprutil1-dbd-sqlite3:amd64.
-#9 3.959 Preparing to unpack .../05-libaprutil1-dbd-sqlite3_1.6.3-1_amd64.deb ...
-#9 3.965 Unpacking libaprutil1-dbd-sqlite3:amd64 (1.6.3-1) ...
-#9 4.026 Selecting previously unselected package liblua5.3-0:amd64.
-#9 4.030 Preparing to unpack .../06-liblua5.3-0_5.3.6-2_amd64.deb ...
-#9 4.037 Unpacking liblua5.3-0:amd64 (5.3.6-2) ...
-#9 4.102 Selecting previously unselected package apache2-bin.
-#9 4.106 Preparing to unpack .../07-apache2-bin_2.4.62-1~deb12u1_amd64.deb ...
-#9 4.113 Unpacking apache2-bin (2.4.62-1~deb12u1) ...
-#9 4.261 Selecting previously unselected package apache2-data.
-#9 4.265 Preparing to unpack .../08-apache2-data_2.4.62-1~deb12u1_all.deb ...
-#9 4.272 Unpacking apache2-data (2.4.62-1~deb12u1) ...
-#9 4.350 Selecting previously unselected package apache2-utils.
-#9 4.354 Preparing to unpack .../09-apache2-utils_2.4.62-1~deb12u1_amd64.deb ...
-#9 4.361 Unpacking apache2-utils (2.4.62-1~deb12u1) ...
-#9 4.435 Selecting previously unselected package media-types.
-#9 4.439 Preparing to unpack .../10-media-types_10.0.0_all.deb ...
-#9 4.447 Unpacking media-types (10.0.0) ...
-#9 4.515 Selecting previously unselected package libncursesw6:amd64.
-#9 4.519 Preparing to unpack .../11-libncursesw6_6.4-4_amd64.deb ...
-#9 4.526 Unpacking libncursesw6:amd64 (6.4-4) ...
-#9 4.599 Selecting previously unselected package libproc2-0:amd64.
-#9 4.603 Preparing to unpack .../12-libproc2-0_2%3a4.0.2-3_amd64.deb ...
-#9 4.611 Unpacking libproc2-0:amd64 (2:4.0.2-3) ...
-#9 4.689 Selecting previously unselected package procps.
-#9 4.694 Preparing to unpack .../13-procps_2%3a4.0.2-3_amd64.deb ...
-#9 4.717 Unpacking procps (2:4.0.2-3) ...
-#9 4.858 Selecting previously unselected package apache2.
-#9 4.863 Preparing to unpack .../14-apache2_2.4.62-1~deb12u1_amd64.deb ...
-#9 4.877 Unpacking apache2 (2.4.62-1~deb12u1) ...
-#9 4.957 Selecting previously unselected package netbase.
-#9 4.961 Preparing to unpack .../15-netbase_6.4_all.deb ...
-#9 4.968 Unpacking netbase (6.4) ...
-#9 5.024 Selecting previously unselected package sensible-utils.
-#9 5.029 Preparing to unpack .../16-sensible-utils_0.0.17+nmu1_all.deb ...
-#9 5.036 Unpacking sensible-utils (0.0.17+nmu1) ...
-#9 5.113 Selecting previously unselected package ucf.
-#9 5.117 Preparing to unpack .../17-ucf_3.0043+nmu1_all.deb ...
-#9 5.127 Moving old data out of the way
-#9 5.129 Unpacking ucf (3.0043+nmu1) ...
-#9 5.194 Selecting previously unselected package debsuryorg-archive-keyring.
-#9 5.199 Preparing to unpack .../18-debsuryorg-archive-keyring_2024.02.05+0~20240205.1+debian12~1.gbp343037_all.deb ...
-#9 5.205 Unpacking debsuryorg-archive-keyring (2024.02.05+0~20240205.1+debian12~1.gbp343037) ...
-#9 5.270 Selecting previously unselected package libbsd0:amd64.
-#9 5.275 Preparing to unpack .../19-libbsd0_0.11.7-2_amd64.deb ...
-#9 5.281 Unpacking libbsd0:amd64 (0.11.7-2) ...
-#9 5.356 Selecting previously unselected package libedit2:amd64.
-#9 5.361 Preparing to unpack .../20-libedit2_3.1-20221030-2_amd64.deb ...
-#9 5.368 Unpacking libedit2:amd64 (3.1-20221030-2) ...
-#9 5.440 Selecting previously unselected package psmisc.
-#9 5.445 Preparing to unpack .../21-psmisc_23.6-1_amd64.deb ...
-#9 5.451 Unpacking psmisc (23.6-1) ...
-#9 5.538 Selecting previously unselected package php-common.
-#9 5.543 Preparing to unpack .../22-php-common_2%3a94+0~20240205.51+debian12~1.gbp6faa2e_all.deb ...
-#9 5.550 Unpacking php-common (2:94+0~20240205.51+debian12~1.gbp6faa2e) ...
-#9 5.624 Selecting previously unselected package php8.3-common.
-#9 5.629 Preparing to unpack .../23-php8.3-common_8.3.11-1+0~20240902.42+debian12~1.gbp1a56f8_amd64.deb ...
-#9 5.638 Unpacking php8.3-common (8.3.11-1+0~20240902.42+debian12~1.gbp1a56f8) ...
-#9 5.788 Selecting previously unselected package php8.3-opcache.
-#9 5.793 Preparing to unpack .../24-php8.3-opcache_8.3.11-1+0~20240902.42+debian12~1.gbp1a56f8_amd64.deb ...
-#9 5.802 Unpacking php8.3-opcache (8.3.11-1+0~20240902.42+debian12~1.gbp1a56f8) ...
-#9 5.897 Selecting previously unselected package php8.3-readline.
-#9 5.902 Preparing to unpack .../25-php8.3-readline_8.3.11-1+0~20240902.42+debian12~1.gbp1a56f8_amd64.deb ...
-#9 5.912 Unpacking php8.3-readline (8.3.11-1+0~20240902.42+debian12~1.gbp1a56f8) ...
-#9 5.978 Selecting previously unselected package libargon2-1:amd64.
-#9 5.983 Preparing to unpack .../26-libargon2-1_0~20171227-0.3+deb12u1_amd64.deb ...
-#9 5.991 Unpacking libargon2-1:amd64 (0~20171227-0.3+deb12u1) ...
-#9 6.059 Selecting previously unselected package libsodium23:amd64.
-#9 6.064 Preparing to unpack .../27-libsodium23_1.0.18-1_amd64.deb ...
-#9 6.071 Unpacking libsodium23:amd64 (1.0.18-1) ...
-#9 6.153 Selecting previously unselected package php8.3-cli.
-#9 6.158 Preparing to unpack .../28-php8.3-cli_8.3.11-1+0~20240902.42+debian12~1.gbp1a56f8_amd64.deb ...
-#9 6.164 Unpacking php8.3-cli (8.3.11-1+0~20240902.42+debian12~1.gbp1a56f8) ...
-#9 6.360 Selecting previously unselected package libapache2-mod-php8.3.
-#9 6.365 Preparing to unpack .../29-libapache2-mod-php8.3_8.3.11-1+0~20240902.42+debian12~1.gbp1a56f8_amd64.deb ...
-#9 6.372 Unpacking libapache2-mod-php8.3 (8.3.11-1+0~20240902.42+debian12~1.gbp1a56f8) ...
-#9 6.557 Selecting previously unselected package libgpm2:amd64.
-#9 6.562 Preparing to unpack .../30-libgpm2_1.20.7-10+b1_amd64.deb ...
-#9 6.570 Unpacking libgpm2:amd64 (1.20.7-10+b1) ...
-#9 6.635 Selecting previously unselected package libonig5:amd64.
-#9 6.640 Preparing to unpack .../31-libonig5_6.9.8-1_amd64.deb ...
-#9 6.648 Unpacking libonig5:amd64 (6.9.8-1) ...
-#9 6.718 Selecting previously unselected package php8.3.
-#9 6.723 Preparing to unpack .../32-php8.3_8.3.11-1+0~20240902.42+debian12~1.gbp1a56f8_all.deb ...
-#9 6.730 Unpacking php8.3 (8.3.11-1+0~20240902.42+debian12~1.gbp1a56f8) ...
-#9 6.807 Selecting previously unselected package php8.3-bz2.
-#9 6.812 Preparing to unpack .../33-php8.3-bz2_8.3.11-1+0~20240902.42+debian12~1.gbp1a56f8_amd64.deb ...
-#9 6.822 Unpacking php8.3-bz2 (8.3.11-1+0~20240902.42+debian12~1.gbp1a56f8) ...
-#9 6.896 Selecting previously unselected package php8.3-curl.
-#9 6.901 Preparing to unpack .../34-php8.3-curl_8.3.11-1+0~20240902.42+debian12~1.gbp1a56f8_amd64.deb ...
-#9 6.910 Unpacking php8.3-curl (8.3.11-1+0~20240902.42+debian12~1.gbp1a56f8) ...
-#9 6.991 Selecting previously unselected package php8.3-intl.
-#9 6.997 Preparing to unpack .../35-php8.3-intl_8.3.11-1+0~20240902.42+debian12~1.gbp1a56f8_amd64.deb ...
-#9 7.006 Unpacking php8.3-intl (8.3.11-1+0~20240902.42+debian12~1.gbp1a56f8) ...
-#9 7.085 Selecting previously unselected package php8.3-mbstring.
-#9 7.090 Preparing to unpack .../36-php8.3-mbstring_8.3.11-1+0~20240902.42+debian12~1.gbp1a56f8_amd64.deb ...
-#9 7.100 Unpacking php8.3-mbstring (8.3.11-1+0~20240902.42+debian12~1.gbp1a56f8) ...
-#9 7.191 Selecting previously unselected package ssl-cert.
-#9 7.197 Preparing to unpack .../37-ssl-cert_1.1.2_all.deb ...
-#9 7.204 Unpacking ssl-cert (1.1.2) ...
-#9 7.257 Setting up media-types (10.0.0) ...
-#9 7.282 Setting up libsodium23:amd64 (1.0.18-1) ...
-#9 7.300 Setting up libgpm2:amd64 (1.20.7-10+b1) ...
-#9 7.319 Setting up psmisc (23.6-1) ...
-#9 7.340 Setting up libargon2-1:amd64 (0~20171227-0.3+deb12u1) ...
-#9 7.359 Setting up libsqlite3-0:amd64 (3.40.1-2) ...
-#9 7.379 Setting up libaprutil1-dbd-sqlite3:amd64 (1.6.3-1) ...
-#9 7.399 Setting up perl-modules-5.36 (5.36.0-7+deb12u1) ...
-#9 7.419 Setting up ssl-cert (1.1.2) ...
-#9 7.483 debconf: unable to initialize frontend: Dialog
-#9 7.483 debconf: (TERM is not set, so the dialog frontend is not usable.)
-#9 7.483 debconf: falling back to frontend: Readline
-#9 7.487 debconf: unable to initialize frontend: Readline
-#9 7.487 debconf: (This frontend requires a controlling tty.)
-#9 7.487 debconf: falling back to frontend: Teletype
-#9 7.791 Setting up libproc2-0:amd64 (2:4.0.2-3) ...
-#9 7.811 Setting up libgdbm-compat4:amd64 (1.23-3) ...
-#9 7.831 Setting up libncursesw6:amd64 (6.4-4) ...
-#9 7.851 Setting up sensible-utils (0.0.17+nmu1) ...
-#9 7.870 Setting up liblua5.3-0:amd64 (5.3.6-2) ...
-#9 7.890 Setting up procps (2:4.0.2-3) ...
-#9 7.969 Setting up netbase (6.4) ...
-#9 8.019 Setting up apache2-data (2.4.62-1~deb12u1) ...
-#9 8.039 Setting up libbsd0:amd64 (0.11.7-2) ...
-#9 8.059 Setting up debsuryorg-archive-keyring (2024.02.05+0~20240205.1+debian12~1.gbp343037) ...
-#9 8.085 Setting up libperl5.36:amd64 (5.36.0-7+deb12u1) ...
-#9 8.104 Setting up libonig5:amd64 (6.9.8-1) ...
-#9 8.124 Setting up apache2-utils (2.4.62-1~deb12u1) ...
-#9 8.145 Setting up php-common (2:94+0~20240205.51+debian12~1.gbp6faa2e) ...
-#9 8.283 Setting up libedit2:amd64 (3.1-20221030-2) ...
-#9 8.300 Setting up perl (5.36.0-7+deb12u1) ...
-#9 8.341 Setting up ucf (3.0043+nmu1) ...
-#9 8.421 debconf: unable to initialize frontend: Dialog
-#9 8.421 debconf: (TERM is not set, so the dialog frontend is not usable.)
-#9 8.421 debconf: falling back to frontend: Readline
-#9 8.425 debconf: unable to initialize frontend: Readline
-#9 8.425 debconf: (This frontend requires a controlling tty.)
-#9 8.425 debconf: falling back to frontend: Teletype
-#9 8.471 Setting up php8.3-common (8.3.11-1+0~20240902.42+debian12~1.gbp1a56f8) ...
-#9 8.572 debconf: unable to initialize frontend: Dialog
-#9 8.572 debconf: (TERM is not set, so the dialog frontend is not usable.)
-#9 8.572 debconf: falling back to frontend: Readline
-#9 8.576 debconf: unable to initialize frontend: Readline
-#9 8.576 debconf: (This frontend requires a controlling tty.)
-#9 8.576 debconf: falling back to frontend: Teletype
-#9 8.598 
-#9 8.598 Creating config file /etc/php/8.3/mods-available/calendar.ini with new version
-#9 8.880 debconf: unable to initialize frontend: Dialog
-#9 8.880 debconf: (TERM is not set, so the dialog frontend is not usable.)
-#9 8.880 debconf: falling back to frontend: Readline
-#9 8.885 debconf: unable to initialize frontend: Readline
-#9 8.885 debconf: (This frontend requires a controlling tty.)
-#9 8.885 debconf: falling back to frontend: Teletype
-#9 8.907 
-#9 8.907 Creating config file /etc/php/8.3/mods-available/ctype.ini with new version
-#9 9.215 debconf: unable to initialize frontend: Dialog
-#9 9.215 debconf: (TERM is not set, so the dialog frontend is not usable.)
-#9 9.215 debconf: falling back to frontend: Readline
-#9 9.219 debconf: unable to initialize frontend: Readline
-#9 9.219 debconf: (This frontend requires a controlling tty.)
-#9 9.219 debconf: falling back to frontend: Teletype
-#9 9.241 
-#9 9.241 Creating config file /etc/php/8.3/mods-available/exif.ini with new version
-#9 9.529 debconf: unable to initialize frontend: Dialog
-#9 9.529 debconf: (TERM is not set, so the dialog frontend is not usable.)
-#9 9.529 debconf: falling back to frontend: Readline
-#9 9.533 debconf: unable to initialize frontend: Readline
-#9 9.533 debconf: (This frontend requires a controlling tty.)
-#9 9.533 debconf: falling back to frontend: Teletype
-#9 9.557 
-#9 9.557 Creating config file /etc/php/8.3/mods-available/fileinfo.ini with new version
-#9 9.873 debconf: unable to initialize frontend: Dialog
-#9 9.873 debconf: (TERM is not set, so the dialog frontend is not usable.)
-#9 9.873 debconf: falling back to frontend: Readline
-#9 9.877 debconf: unable to initialize frontend: Readline
-#9 9.877 debconf: (This frontend requires a controlling tty.)
-#9 9.877 debconf: falling back to frontend: Teletype
-#9 9.899 
-#9 9.899 Creating config file /etc/php/8.3/mods-available/ffi.ini with new version
-#9 10.21 debconf: unable to initialize frontend: Dialog
-#9 10.21 debconf: (TERM is not set, so the dialog frontend is not usable.)
-#9 10.21 debconf: falling back to frontend: Readline
-#9 10.22 debconf: unable to initialize frontend: Readline
-#9 10.22 debconf: (This frontend requires a controlling tty.)
-#9 10.22 debconf: falling back to frontend: Teletype
-#9 10.24 
-#9 10.24 Creating config file /etc/php/8.3/mods-available/ftp.ini with new version
-#9 10.53 debconf: unable to initialize frontend: Dialog
-#9 10.53 debconf: (TERM is not set, so the dialog frontend is not usable.)
-#9 10.53 debconf: falling back to frontend: Readline
-#9 10.54 debconf: unable to initialize frontend: Readline
-#9 10.54 debconf: (This frontend requires a controlling tty.)
-#9 10.54 debconf: falling back to frontend: Teletype
-#9 10.56 
-#9 10.56 Creating config file /etc/php/8.3/mods-available/gettext.ini with new version
-#9 10.89 debconf: unable to initialize frontend: Dialog
-#9 10.89 debconf: (TERM is not set, so the dialog frontend is not usable.)
-#9 10.89 debconf: falling back to frontend: Readline
-#9 10.90 debconf: unable to initialize frontend: Readline
-#9 10.90 debconf: (This frontend requires a controlling tty.)
-#9 10.90 debconf: falling back to frontend: Teletype
-#9 10.92 
-#9 10.92 Creating config file /etc/php/8.3/mods-available/iconv.ini with new version
-#9 11.24 debconf: unable to initialize frontend: Dialog
-#9 11.24 debconf: (TERM is not set, so the dialog frontend is not usable.)
-#9 11.24 debconf: falling back to frontend: Readline
-#9 11.25 debconf: unable to initialize frontend: Readline
-#9 11.25 debconf: (This frontend requires a controlling tty.)
-#9 11.25 debconf: falling back to frontend: Teletype
-#9 11.27 
-#9 11.27 Creating config file /etc/php/8.3/mods-available/pdo.ini with new version
-#9 11.57 debconf: unable to initialize frontend: Dialog
-#9 11.57 debconf: (TERM is not set, so the dialog frontend is not usable.)
-#9 11.57 debconf: falling back to frontend: Readline
-#9 11.58 debconf: unable to initialize frontend: Readline
-#9 11.58 debconf: (This frontend requires a controlling tty.)
-#9 11.58 debconf: falling back to frontend: Teletype
-#9 11.60 
-#9 11.60 Creating config file /etc/php/8.3/mods-available/phar.ini with new version
-#9 11.83 debconf: unable to initialize frontend: Dialog
-#9 11.83 debconf: (TERM is not set, so the dialog frontend is not usable.)
-#9 11.83 debconf: falling back to frontend: Readline
-#9 11.84 debconf: unable to initialize frontend: Readline
-#9 11.84 debconf: (This frontend requires a controlling tty.)
-#9 11.84 debconf: falling back to frontend: Teletype
-#9 11.86 
-#9 11.86 Creating config file /etc/php/8.3/mods-available/posix.ini with new version
-#9 12.18 debconf: unable to initialize frontend: Dialog
-#9 12.18 debconf: (TERM is not set, so the dialog frontend is not usable.)
-#9 12.18 debconf: falling back to frontend: Readline
-#9 12.18 debconf: unable to initialize frontend: Readline
-#9 12.18 debconf: (This frontend requires a controlling tty.)
-#9 12.18 debconf: falling back to frontend: Teletype
-#9 12.20 
-#9 12.20 Creating config file /etc/php/8.3/mods-available/shmop.ini with new version
-#9 12.49 debconf: unable to initialize frontend: Dialog
-#9 12.49 debconf: (TERM is not set, so the dialog frontend is not usable.)
-#9 12.49 debconf: falling back to frontend: Readline
-#9 12.50 debconf: unable to initialize frontend: Readline
-#9 12.50 debconf: (This frontend requires a controlling tty.)
-#9 12.50 debconf: falling back to frontend: Teletype
-#9 12.52 
-#9 12.52 Creating config file /etc/php/8.3/mods-available/sockets.ini with new version
-#9 12.69 debconf: unable to initialize frontend: Dialog
-#9 12.69 debconf: (TERM is not set, so the dialog frontend is not usable.)
-#9 12.69 debconf: falling back to frontend: Readline
-#9 12.70 debconf: unable to initialize frontend: Readline
-#9 12.70 debconf: (This frontend requires a controlling tty.)
-#9 12.70 debconf: falling back to frontend: Teletype
-#9 12.72 
-#9 12.72 Creating config file /etc/php/8.3/mods-available/sysvmsg.ini with new version
-#9 13.01 debconf: unable to initialize frontend: Dialog
-#9 13.01 debconf: (TERM is not set, so the dialog frontend is not usable.)
-#9 13.01 debconf: falling back to frontend: Readline
-#9 13.01 debconf: unable to initialize frontend: Readline
-#9 13.01 debconf: (This frontend requires a controlling tty.)
-#9 13.01 debconf: falling back to frontend: Teletype
-#9 13.03 
-#9 13.03 Creating config file /etc/php/8.3/mods-available/sysvsem.ini with new version
-#9 13.34 debconf: unable to initialize frontend: Dialog
-#9 13.34 debconf: (TERM is not set, so the dialog frontend is not usable.)
-#9 13.34 debconf: falling back to frontend: Readline
-#9 13.35 debconf: unable to initialize frontend: Readline
-#9 13.35 debconf: (This frontend requires a controlling tty.)
-#9 13.35 debconf: falling back to frontend: Teletype
-#9 13.37 
-#9 13.37 Creating config file /etc/php/8.3/mods-available/sysvshm.ini with new version
-#9 13.65 debconf: unable to initialize frontend: Dialog
-#9 13.65 debconf: (TERM is not set, so the dialog frontend is not usable.)
-#9 13.65 debconf: falling back to frontend: Readline
-#9 13.66 debconf: unable to initialize frontend: Readline
-#9 13.66 debconf: (This frontend requires a controlling tty.)
-#9 13.66 debconf: falling back to frontend: Teletype
-#9 13.68 
-#9 13.68 Creating config file /etc/php/8.3/mods-available/tokenizer.ini with new version
-#9 13.85 Setting up apache2-bin (2.4.62-1~deb12u1) ...
-#9 13.87 Setting up php8.3-mbstring (8.3.11-1+0~20240902.42+debian12~1.gbp1a56f8) ...
-#9 13.98 debconf: unable to initialize frontend: Dialog
-#9 13.98 debconf: (TERM is not set, so the dialog frontend is not usable.)
-#9 13.98 debconf: falling back to frontend: Readline
-#9 13.99 debconf: unable to initialize frontend: Readline
-#9 13.99 debconf: (This frontend requires a controlling tty.)
-#9 13.99 debconf: falling back to frontend: Teletype
-#9 14.01 
-#9 14.01 Creating config file /etc/php/8.3/mods-available/mbstring.ini with new version
-#9 14.25 Setting up php8.3-readline (8.3.11-1+0~20240902.42+debian12~1.gbp1a56f8) ...
-#9 14.36 debconf: unable to initialize frontend: Dialog
-#9 14.36 debconf: (TERM is not set, so the dialog frontend is not usable.)
-#9 14.36 debconf: falling back to frontend: Readline
-#9 14.36 debconf: unable to initialize frontend: Readline
-#9 14.36 debconf: (This frontend requires a controlling tty.)
-#9 14.36 debconf: falling back to frontend: Teletype
-#9 14.39 
-#9 14.39 Creating config file /etc/php/8.3/mods-available/readline.ini with new version
-#9 14.63 Setting up php8.3-bz2 (8.3.11-1+0~20240902.42+debian12~1.gbp1a56f8) ...
-#9 14.74 debconf: unable to initialize frontend: Dialog
-#9 14.74 debconf: (TERM is not set, so the dialog frontend is not usable.)
-#9 14.74 debconf: falling back to frontend: Readline
-#9 14.75 debconf: unable to initialize frontend: Readline
-#9 14.75 debconf: (This frontend requires a controlling tty.)
-#9 14.75 debconf: falling back to frontend: Teletype
-#9 14.77 
-#9 14.77 Creating config file /etc/php/8.3/mods-available/bz2.ini with new version
-#9 15.01 Setting up php8.3-opcache (8.3.11-1+0~20240902.42+debian12~1.gbp1a56f8) ...
-#9 15.12 debconf: unable to initialize frontend: Dialog
-#9 15.12 debconf: (TERM is not set, so the dialog frontend is not usable.)
-#9 15.12 debconf: falling back to frontend: Readline
-#9 15.13 debconf: unable to initialize frontend: Readline
-#9 15.13 debconf: (This frontend requires a controlling tty.)
-#9 15.13 debconf: falling back to frontend: Teletype
-#9 15.15 
-#9 15.15 Creating config file /etc/php/8.3/mods-available/opcache.ini with new version
-#9 15.41 Setting up php8.3-curl (8.3.11-1+0~20240902.42+debian12~1.gbp1a56f8) ...
-#9 15.52 debconf: unable to initialize frontend: Dialog
-#9 15.52 debconf: (TERM is not set, so the dialog frontend is not usable.)
-#9 15.52 debconf: falling back to frontend: Readline
-#9 15.52 debconf: unable to initialize frontend: Readline
-#9 15.52 debconf: (This frontend requires a controlling tty.)
-#9 15.52 debconf: falling back to frontend: Teletype
-#9 15.55 
-#9 15.55 Creating config file /etc/php/8.3/mods-available/curl.ini with new version
-#9 15.79 Setting up apache2 (2.4.62-1~deb12u1) ...
-#9 16.99 Enabling module mpm_event.
-#9 17.01 Enabling module authz_core.
-#9 17.02 Enabling module authz_host.
-#9 17.04 Enabling module authn_core.
-#9 17.04 Enabling module auth_basic.
-#9 17.06 Enabling module access_compat.
-#9 17.08 Enabling module authn_file.
-#9 17.10 Enabling module authz_user.
-#9 17.13 Enabling module alias.
-#9 17.15 Enabling module dir.
-#9 17.17 Enabling module autoindex.
-#9 17.19 Enabling module env.
-#9 17.21 Enabling module mime.
-#9 17.23 Enabling module negotiation.
-#9 17.25 Enabling module setenvif.
-#9 17.27 Enabling module filter.
-#9 17.29 Enabling module deflate.
-#9 17.31 Enabling module status.
-#9 17.33 Enabling module reqtimeout.
-#9 17.35 Enabling conf charset.
-#9 17.37 Enabling conf localized-error-pages.
-#9 17.39 Enabling conf other-vhosts-access-log.
-#9 17.41 Enabling conf security.
-#9 17.43 Enabling conf serve-cgi-bin.
-#9 17.45 Enabling site 000-default.
-#9 17.46 invoke-rc.d: could not determine current runlevel
-#9 17.46 invoke-rc.d: policy-rc.d denied execution of start.
-#9 17.70 Setting up php8.3-intl (8.3.11-1+0~20240902.42+debian12~1.gbp1a56f8) ...
-#9 17.81 debconf: unable to initialize frontend: Dialog
-#9 17.81 debconf: (TERM is not set, so the dialog frontend is not usable.)
-#9 17.81 debconf: falling back to frontend: Readline
-#9 17.82 debconf: unable to initialize frontend: Readline
-#9 17.82 debconf: (This frontend requires a controlling tty.)
-#9 17.82 debconf: falling back to frontend: Teletype
-#9 17.84 
-#9 17.84 Creating config file /etc/php/8.3/mods-available/intl.ini with new version
-#9 18.08 Setting up php8.3-cli (8.3.11-1+0~20240902.42+debian12~1.gbp1a56f8) ...
-#9 18.10 update-alternatives: using /usr/bin/php8.3 to provide /usr/bin/php (php) in auto mode
-#9 18.10 update-alternatives: warning: skip creation of /usr/share/man/man1/php.1.gz because associated file /usr/share/man/man1/php8.3.1.gz (of link group php) doesn't exist
-#9 18.10 update-alternatives: using /usr/bin/phar8.3 to provide /usr/bin/phar (phar) in auto mode
-#9 18.10 update-alternatives: warning: skip creation of /usr/share/man/man1/phar.1.gz because associated file /usr/share/man/man1/phar8.3.1.gz (of link group phar) doesn't exist
-#9 18.11 update-alternatives: using /usr/bin/phar.phar8.3 to provide /usr/bin/phar.phar (phar.phar) in auto mode
-#9 18.11 update-alternatives: warning: skip creation of /usr/share/man/man1/phar.phar.1.gz because associated file /usr/share/man/man1/phar.phar8.3.1.gz (of link group phar.phar) doesn't exist
-#9 18.21 debconf: unable to initialize frontend: Dialog
-#9 18.21 debconf: (TERM is not set, so the dialog frontend is not usable.)
-#9 18.21 debconf: falling back to frontend: Readline
-#9 18.22 debconf: unable to initialize frontend: Readline
-#9 18.22 debconf: (This frontend requires a controlling tty.)
-#9 18.22 debconf: falling back to frontend: Teletype
-#9 18.24 
-#9 18.24 Creating config file /etc/php/8.3/cli/php.ini with new version
-#9 19.27 Setting up libapache2-mod-php8.3 (8.3.11-1+0~20240902.42+debian12~1.gbp1a56f8) ...
-#9 19.41 debconf: unable to initialize frontend: Dialog
-#9 19.41 debconf: (TERM is not set, so the dialog frontend is not usable.)
-#9 19.41 debconf: falling back to frontend: Readline
-#9 19.41 debconf: unable to initialize frontend: Readline
-#9 19.41 debconf: (This frontend requires a controlling tty.)
-#9 19.41 debconf: falling back to frontend: Teletype
-#9 19.43 
-#9 19.43 Creating config file /etc/php/8.3/apache2/php.ini with new version
-#9 20.69 Module mpm_event disabled.
-#9 20.71 Enabling module mpm_prefork.
-#9 20.71 apache2_switch_mpm Switch to prefork
-#9 20.76 invoke-rc.d: could not determine current runlevel
-#9 20.77 invoke-rc.d: policy-rc.d denied execution of restart.
-#9 20.84 apache2_invoke: Enable module php8.3
-#9 20.86 invoke-rc.d: could not determine current runlevel
-#9 20.86 invoke-rc.d: policy-rc.d denied execution of restart.
-#9 20.88 Setting up php8.3 (8.3.11-1+0~20240902.42+debian12~1.gbp1a56f8) ...
-#9 20.90 Processing triggers for libc-bin (2.36-9+deb12u8) ...
-#9 20.94 Processing triggers for php8.3-cli (8.3.11-1+0~20240902.42+debian12~1.gbp1a56f8) ...
-#9 20.96 Processing triggers for libapache2-mod-php8.3 (8.3.11-1+0~20240902.42+debian12~1.gbp1a56f8) ...
-#9 DONE 21.2s
+#9 [ 5/16] RUN apt-get install -y php8.3 php8.3-fpm php8.3-cli php8.3-bz2 php8.3-curl php8.3-mbstring php8.3-intl
+#9 0.447 Reading package lists...
+#9 0.826 Building dependency tree...
+#9 0.915 Reading state information...
+#9 1.028 The following additional packages will be installed:
+#9 1.028   dbus dbus-bin dbus-daemon dbus-session-bus-common dbus-system-bus-common
+#9 1.028   debsuryorg-archive-keyring dmsetup libapparmor1 libargon2-1 libbsd0
+#9 1.028   libcryptsetup12 libdbus-1-3 libdevmapper1.02.1 libedit2 libfdisk1 libgpm2
+#9 1.029   libip4tc2 libjson-c5 libkmod2 libncursesw6 libonig5 libproc2-0 libsodium23
+#9 1.029   libsystemd-shared media-types php-common php8.3-common php8.3-opcache
+#9 1.029   php8.3-readline procps psmisc sensible-utils systemd systemd-timesyncd ucf
+#9 1.030 Suggested packages:
+#9 1.030   default-dbus-session-bus | dbus-session-bus gpm php-pear systemd-container
+#9 1.030   systemd-homed systemd-userdbd systemd-boot systemd-resolved libfido2-1
+#9 1.030   libqrencode4 libtss2-esys-3.0.2-0 libtss2-mu0 libtss2-rc0 polkitd
+#9 1.030   | policykit-1
+#9 1.163 The following NEW packages will be installed:
+#9 1.163   dbus dbus-bin dbus-daemon dbus-session-bus-common dbus-system-bus-common
+#9 1.163   debsuryorg-archive-keyring dmsetup libapparmor1 libargon2-1 libbsd0
+#9 1.163   libcryptsetup12 libdbus-1-3 libdevmapper1.02.1 libedit2 libfdisk1 libgpm2
+#9 1.163   libip4tc2 libjson-c5 libkmod2 libncursesw6 libonig5 libproc2-0 libsodium23
+#9 1.163   libsystemd-shared media-types php-common php8.3 php8.3-bz2 php8.3-cli
+#9 1.163   php8.3-common php8.3-curl php8.3-fpm php8.3-intl php8.3-mbstring
+#9 1.163   php8.3-opcache php8.3-readline procps psmisc sensible-utils systemd
+#9 1.163   systemd-timesyncd ucf
+#9 1.228 0 upgraded, 42 newly installed, 0 to remove and 2 not upgraded.
+#9 1.228 Need to get 13.5 MB of archives.
+#9 1.228 After this operation, 49.7 MB of additional disk space will be used.
+#9 1.228 Get:1 http://deb.debian.org/debian bookworm/main amd64 libargon2-1 amd64 0~20171227-0.3+deb12u1 [19.4 kB]
+#9 1.323 Get:2 https://packages.sury.org/php bookworm/main amd64 debsuryorg-archive-keyring all 2024.02.05+0~20240205.1+debian12~1.gbp343037 [4412 B]
+#9 1.346 Get:3 https://packages.sury.org/php bookworm/main amd64 php-common all 2:94+0~20240205.51+debian12~1.gbp6faa2e [12.9 kB]
+#9 1.374 Get:4 https://packages.sury.org/php bookworm/main amd64 php8.3-common amd64 8.3.11-1+0~20240902.42+debian12~1.gbp1a56f8 [712 kB]
+#9 1.486 Get:5 https://packages.sury.org/php bookworm/main amd64 php8.3-opcache amd64 8.3.11-1+0~20240902.42+debian12~1.gbp1a56f8 [346 kB]
+#9 1.513 Get:6 http://deb.debian.org/debian bookworm/main amd64 dmsetup amd64 2:1.02.185-2 [82.0 kB]
+#9 1.515 Get:7 https://packages.sury.org/php bookworm/main amd64 php8.3-readline amd64 8.3.11-1+0~20240902.42+debian12~1.gbp1a56f8 [12.5 kB]
+#9 1.531 Get:8 https://packages.sury.org/php bookworm/main amd64 php8.3-cli amd64 8.3.11-1+0~20240902.42+debian12~1.gbp1a56f8 [1770 kB]
+#9 1.670 Get:9 https://packages.sury.org/php bookworm/main amd64 php8.3-fpm amd64 8.3.11-1+0~20240902.42+debian12~1.gbp1a56f8 [1781 kB]
+#9 1.814 Get:10 https://packages.sury.org/php bookworm/main amd64 php8.3 all 8.3.11-1+0~20240902.42+debian12~1.gbp1a56f8 [31.5 kB]
+#9 1.816 Get:11 https://packages.sury.org/php bookworm/main amd64 php8.3-bz2 amd64 8.3.11-1+0~20240902.42+debian12~1.gbp1a56f8 [10.6 kB]
+#9 1.831 Get:12 https://packages.sury.org/php bookworm/main amd64 php8.3-curl amd64 8.3.11-1+0~20240902.42+debian12~1.gbp1a56f8 [37.0 kB]
+#9 1.849 Get:13 https://packages.sury.org/php bookworm/main amd64 php8.3-intl amd64 8.3.11-1+0~20240902.42+debian12~1.gbp1a56f8 [138 kB]
+#9 1.864 Get:14 https://packages.sury.org/php bookworm/main amd64 php8.3-mbstring amd64 8.3.11-1+0~20240902.42+debian12~1.gbp1a56f8 [443 kB]
+#9 2.278 Get:15 http://deb.debian.org/debian bookworm/main amd64 libdevmapper1.02.1 amd64 2:1.02.185-2 [133 kB]
+#9 4.692 Get:16 http://deb.debian.org/debian bookworm/main amd64 libjson-c5 amd64 0.16-2 [44.1 kB]
+#9 5.134 Get:17 http://deb.debian.org/debian bookworm/main amd64 libcryptsetup12 amd64 2:2.6.1-4~deb12u2 [223 kB]
+#9 8.033 Get:18 http://deb.debian.org/debian bookworm/main amd64 libfdisk1 amd64 2.38.1-5+deb12u1 [193 kB]
+#9 11.77 Get:19 http://deb.debian.org/debian bookworm/main amd64 libkmod2 amd64 30+20221128-1 [57.9 kB]
+#9 12.76 Get:20 http://deb.debian.org/debian bookworm/main amd64 libapparmor1 amd64 3.0.8-3 [41.2 kB]
+#9 13.34 Get:21 http://deb.debian.org/debian bookworm/main amd64 libip4tc2 amd64 1.8.9-2 [19.0 kB]
+#9 13.59 Get:22 http://deb.debian.org/debian bookworm/main amd64 libsystemd-shared amd64 252.30-1~deb12u2 [1694 kB]
+#9 47.28 Get:23 http://deb.debian.org/debian bookworm/main amd64 systemd amd64 252.30-1~deb12u2 [3035 kB]
+#9 144.4 Get:24 http://deb.debian.org/debian bookworm/main amd64 libdbus-1-3 amd64 1.14.10-1~deb12u1 [201 kB]
+#9 149.6 Get:25 http://deb.debian.org/debian bookworm/main amd64 dbus-bin amd64 1.14.10-1~deb12u1 [105 kB]
+#9 151.3 Get:26 http://deb.debian.org/debian bookworm/main amd64 dbus-session-bus-common all 1.14.10-1~deb12u1 [78.2 kB]
+#9 153.8 Get:27 http://deb.debian.org/debian bookworm/main amd64 dbus-daemon amd64 1.14.10-1~deb12u1 [184 kB]
+#9 162.3 Get:28 http://deb.debian.org/debian bookworm/main amd64 dbus-system-bus-common all 1.14.10-1~deb12u1 [79.3 kB]
+#9 164.0 Get:29 http://deb.debian.org/debian bookworm/main amd64 dbus amd64 1.14.10-1~deb12u1 [97.4 kB]
+#9 166.0 Get:30 http://deb.debian.org/debian bookworm/main amd64 libncursesw6 amd64 6.4-4 [134 kB]
+#9 169.7 Get:31 http://deb.debian.org/debian bookworm/main amd64 libproc2-0 amd64 2:4.0.2-3 [62.8 kB]
+#9 171.8 Get:32 http://deb.debian.org/debian bookworm/main amd64 procps amd64 2:4.0.2-3 [709 kB]
+#9 188.5 Get:33 http://deb.debian.org/debian bookworm/main amd64 sensible-utils all 0.0.17+nmu1 [19.0 kB]
+#9 188.8 Get:34 http://deb.debian.org/debian bookworm/main amd64 media-types all 10.0.0 [26.1 kB]
+#9 189.5 Get:35 http://deb.debian.org/debian bookworm/main amd64 systemd-timesyncd amd64 252.30-1~deb12u2 [63.6 kB]
+#9 190.8 Get:36 http://deb.debian.org/debian bookworm/main amd64 ucf all 3.0043+nmu1 [55.2 kB]
+#9 192.6 Get:37 http://deb.debian.org/debian bookworm/main amd64 libbsd0 amd64 0.11.7-2 [117 kB]
+#9 195.3 Get:38 http://deb.debian.org/debian bookworm/main amd64 libedit2 amd64 3.1-20221030-2 [93.0 kB]
+#9 198.6 Get:39 http://deb.debian.org/debian bookworm/main amd64 libgpm2 amd64 1.20.7-10+b1 [14.2 kB]
+#9 199.4 Get:40 http://deb.debian.org/debian bookworm/main amd64 libonig5 amd64 6.9.8-1 [188 kB]
+#9 205.7 Get:41 http://deb.debian.org/debian bookworm/main amd64 libsodium23 amd64 1.0.18-1 [161 kB]
+#9 209.4 Get:42 http://deb.debian.org/debian bookworm/main amd64 psmisc amd64 23.6-1 [259 kB]
+#9 215.8 debconf: delaying package configuration, since apt-utils is not installed
+#9 215.9 Fetched 13.5 MB in 3min 35s (62.9 kB/s)
+#9 215.9 Selecting previously unselected package libargon2-1:amd64.
+#9 215.9 (Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 6809 files and directories currently installed.)
+#9 215.9 Preparing to unpack .../00-libargon2-1_0~20171227-0.3+deb12u1_amd64.deb ...
+#9 215.9 Unpacking libargon2-1:amd64 (0~20171227-0.3+deb12u1) ...
+#9 216.0 Selecting previously unselected package dmsetup.
+#9 216.0 Preparing to unpack .../01-dmsetup_2%3a1.02.185-2_amd64.deb ...
+#9 216.0 Unpacking dmsetup (2:1.02.185-2) ...
+#9 216.1 Selecting previously unselected package libdevmapper1.02.1:amd64.
+#9 216.1 Preparing to unpack .../02-libdevmapper1.02.1_2%3a1.02.185-2_amd64.deb ...
+#9 216.1 Unpacking libdevmapper1.02.1:amd64 (2:1.02.185-2) ...
+#9 216.2 Selecting previously unselected package libjson-c5:amd64.
+#9 216.2 Preparing to unpack .../03-libjson-c5_0.16-2_amd64.deb ...
+#9 216.2 Unpacking libjson-c5:amd64 (0.16-2) ...
+#9 216.2 Selecting previously unselected package libcryptsetup12:amd64.
+#9 216.2 Preparing to unpack .../04-libcryptsetup12_2%3a2.6.1-4~deb12u2_amd64.deb ...
+#9 216.2 Unpacking libcryptsetup12:amd64 (2:2.6.1-4~deb12u2) ...
+#9 216.3 Selecting previously unselected package libfdisk1:amd64.
+#9 216.3 Preparing to unpack .../05-libfdisk1_2.38.1-5+deb12u1_amd64.deb ...
+#9 216.3 Unpacking libfdisk1:amd64 (2.38.1-5+deb12u1) ...
+#9 216.4 Selecting previously unselected package libkmod2:amd64.
+#9 216.4 Preparing to unpack .../06-libkmod2_30+20221128-1_amd64.deb ...
+#9 216.4 Unpacking libkmod2:amd64 (30+20221128-1) ...
+#9 216.5 Selecting previously unselected package libapparmor1:amd64.
+#9 216.5 Preparing to unpack .../07-libapparmor1_3.0.8-3_amd64.deb ...
+#9 216.5 Unpacking libapparmor1:amd64 (3.0.8-3) ...
+#9 216.6 Selecting previously unselected package libip4tc2:amd64.
+#9 216.6 Preparing to unpack .../08-libip4tc2_1.8.9-2_amd64.deb ...
+#9 216.6 Unpacking libip4tc2:amd64 (1.8.9-2) ...
+#9 216.6 Selecting previously unselected package libsystemd-shared:amd64.
+#9 216.6 Preparing to unpack .../09-libsystemd-shared_252.30-1~deb12u2_amd64.deb ...
+#9 216.7 Unpacking libsystemd-shared:amd64 (252.30-1~deb12u2) ...
+#9 216.8 Selecting previously unselected package systemd.
+#9 216.8 Preparing to unpack .../10-systemd_252.30-1~deb12u2_amd64.deb ...
+#9 216.9 Unpacking systemd (252.30-1~deb12u2) ...
+#9 217.1 Selecting previously unselected package libdbus-1-3:amd64.
+#9 217.1 Preparing to unpack .../11-libdbus-1-3_1.14.10-1~deb12u1_amd64.deb ...
+#9 217.1 Unpacking libdbus-1-3:amd64 (1.14.10-1~deb12u1) ...
+#9 217.2 Selecting previously unselected package dbus-bin.
+#9 217.2 Preparing to unpack .../12-dbus-bin_1.14.10-1~deb12u1_amd64.deb ...
+#9 217.2 Unpacking dbus-bin (1.14.10-1~deb12u1) ...
+#9 217.3 Selecting previously unselected package dbus-session-bus-common.
+#9 217.3 Preparing to unpack .../13-dbus-session-bus-common_1.14.10-1~deb12u1_all.deb ...
+#9 217.3 Unpacking dbus-session-bus-common (1.14.10-1~deb12u1) ...
+#9 217.4 Selecting previously unselected package dbus-daemon.
+#9 217.4 Preparing to unpack .../14-dbus-daemon_1.14.10-1~deb12u1_amd64.deb ...
+#9 217.4 Unpacking dbus-daemon (1.14.10-1~deb12u1) ...
+#9 217.5 Selecting previously unselected package dbus-system-bus-common.
+#9 217.5 Preparing to unpack .../15-dbus-system-bus-common_1.14.10-1~deb12u1_all.deb ...
+#9 217.5 Unpacking dbus-system-bus-common (1.14.10-1~deb12u1) ...
+#9 217.6 Selecting previously unselected package dbus.
+#9 217.6 Preparing to unpack .../16-dbus_1.14.10-1~deb12u1_amd64.deb ...
+#9 217.6 Unpacking dbus (1.14.10-1~deb12u1) ...
+#9 217.7 Selecting previously unselected package libncursesw6:amd64.
+#9 217.7 Preparing to unpack .../17-libncursesw6_6.4-4_amd64.deb ...
+#9 217.7 Unpacking libncursesw6:amd64 (6.4-4) ...
+#9 217.8 Selecting previously unselected package libproc2-0:amd64.
+#9 217.8 Preparing to unpack .../18-libproc2-0_2%3a4.0.2-3_amd64.deb ...
+#9 217.8 Unpacking libproc2-0:amd64 (2:4.0.2-3) ...
+#9 217.8 Selecting previously unselected package procps.
+#9 217.8 Preparing to unpack .../19-procps_2%3a4.0.2-3_amd64.deb ...
+#9 217.9 Unpacking procps (2:4.0.2-3) ...
+#9 218.0 Selecting previously unselected package sensible-utils.
+#9 218.0 Preparing to unpack .../20-sensible-utils_0.0.17+nmu1_all.deb ...
+#9 218.0 Unpacking sensible-utils (0.0.17+nmu1) ...
+#9 218.1 Selecting previously unselected package media-types.
+#9 218.1 Preparing to unpack .../21-media-types_10.0.0_all.deb ...
+#9 218.1 Unpacking media-types (10.0.0) ...
+#9 218.1 Selecting previously unselected package systemd-timesyncd.
+#9 218.1 Preparing to unpack .../22-systemd-timesyncd_252.30-1~deb12u2_amd64.deb ...
+#9 218.2 Unpacking systemd-timesyncd (252.30-1~deb12u2) ...
+#9 218.2 Selecting previously unselected package ucf.
+#9 218.2 Preparing to unpack .../23-ucf_3.0043+nmu1_all.deb ...
+#9 218.2 Moving old data out of the way
+#9 218.3 Unpacking ucf (3.0043+nmu1) ...
+#9 218.3 Selecting previously unselected package debsuryorg-archive-keyring.
+#9 218.3 Preparing to unpack .../24-debsuryorg-archive-keyring_2024.02.05+0~20240205.1+debian12~1.gbp343037_all.deb ...
+#9 218.3 Unpacking debsuryorg-archive-keyring (2024.02.05+0~20240205.1+debian12~1.gbp343037) ...
+#9 218.4 Selecting previously unselected package libbsd0:amd64.
+#9 218.4 Preparing to unpack .../25-libbsd0_0.11.7-2_amd64.deb ...
+#9 218.4 Unpacking libbsd0:amd64 (0.11.7-2) ...
+#9 218.5 Selecting previously unselected package libedit2:amd64.
+#9 218.5 Preparing to unpack .../26-libedit2_3.1-20221030-2_amd64.deb ...
+#9 218.5 Unpacking libedit2:amd64 (3.1-20221030-2) ...
+#9 218.6 Selecting previously unselected package libgpm2:amd64.
+#9 218.6 Preparing to unpack .../27-libgpm2_1.20.7-10+b1_amd64.deb ...
+#9 218.6 Unpacking libgpm2:amd64 (1.20.7-10+b1) ...
+#9 218.6 Selecting previously unselected package libonig5:amd64.
+#9 218.6 Preparing to unpack .../28-libonig5_6.9.8-1_amd64.deb ...
+#9 218.6 Unpacking libonig5:amd64 (6.9.8-1) ...
+#9 218.7 Selecting previously unselected package libsodium23:amd64.
+#9 218.7 Preparing to unpack .../29-libsodium23_1.0.18-1_amd64.deb ...
+#9 218.7 Unpacking libsodium23:amd64 (1.0.18-1) ...
+#9 218.8 Selecting previously unselected package psmisc.
+#9 218.8 Preparing to unpack .../30-psmisc_23.6-1_amd64.deb ...
+#9 218.8 Unpacking psmisc (23.6-1) ...
+#9 218.9 Selecting previously unselected package php-common.
+#9 218.9 Preparing to unpack .../31-php-common_2%3a94+0~20240205.51+debian12~1.gbp6faa2e_all.deb ...
+#9 218.9 Unpacking php-common (2:94+0~20240205.51+debian12~1.gbp6faa2e) ...
+#9 219.0 Selecting previously unselected package php8.3-common.
+#9 219.0 Preparing to unpack .../32-php8.3-common_8.3.11-1+0~20240902.42+debian12~1.gbp1a56f8_amd64.deb ...
+#9 219.0 Unpacking php8.3-common (8.3.11-1+0~20240902.42+debian12~1.gbp1a56f8) ...
+#9 219.2 Selecting previously unselected package php8.3-opcache.
+#9 219.2 Preparing to unpack .../33-php8.3-opcache_8.3.11-1+0~20240902.42+debian12~1.gbp1a56f8_amd64.deb ...
+#9 219.2 Unpacking php8.3-opcache (8.3.11-1+0~20240902.42+debian12~1.gbp1a56f8) ...
+#9 219.3 Selecting previously unselected package php8.3-readline.
+#9 219.3 Preparing to unpack .../34-php8.3-readline_8.3.11-1+0~20240902.42+debian12~1.gbp1a56f8_amd64.deb ...
+#9 219.3 Unpacking php8.3-readline (8.3.11-1+0~20240902.42+debian12~1.gbp1a56f8) ...
+#9 219.3 Selecting previously unselected package php8.3-cli.
+#9 219.4 Preparing to unpack .../35-php8.3-cli_8.3.11-1+0~20240902.42+debian12~1.gbp1a56f8_amd64.deb ...
+#9 219.4 Unpacking php8.3-cli (8.3.11-1+0~20240902.42+debian12~1.gbp1a56f8) ...
+#9 219.6 Selecting previously unselected package php8.3-fpm.
+#9 219.6 Preparing to unpack .../36-php8.3-fpm_8.3.11-1+0~20240902.42+debian12~1.gbp1a56f8_amd64.deb ...
+#9 219.6 Unpacking php8.3-fpm (8.3.11-1+0~20240902.42+debian12~1.gbp1a56f8) ...
+#9 219.8 Selecting previously unselected package php8.3.
+#9 219.8 Preparing to unpack .../37-php8.3_8.3.11-1+0~20240902.42+debian12~1.gbp1a56f8_all.deb ...
+#9 219.8 Unpacking php8.3 (8.3.11-1+0~20240902.42+debian12~1.gbp1a56f8) ...
+#9 219.8 Selecting previously unselected package php8.3-bz2.
+#9 219.8 Preparing to unpack .../38-php8.3-bz2_8.3.11-1+0~20240902.42+debian12~1.gbp1a56f8_amd64.deb ...
+#9 219.9 Unpacking php8.3-bz2 (8.3.11-1+0~20240902.42+debian12~1.gbp1a56f8) ...
+#9 219.9 Selecting previously unselected package php8.3-curl.
+#9 219.9 Preparing to unpack .../39-php8.3-curl_8.3.11-1+0~20240902.42+debian12~1.gbp1a56f8_amd64.deb ...
+#9 219.9 Unpacking php8.3-curl (8.3.11-1+0~20240902.42+debian12~1.gbp1a56f8) ...
+#9 220.0 Selecting previously unselected package php8.3-intl.
+#9 220.0 Preparing to unpack .../40-php8.3-intl_8.3.11-1+0~20240902.42+debian12~1.gbp1a56f8_amd64.deb ...
+#9 220.0 Unpacking php8.3-intl (8.3.11-1+0~20240902.42+debian12~1.gbp1a56f8) ...
+#9 220.1 Selecting previously unselected package php8.3-mbstring.
+#9 220.1 Preparing to unpack .../41-php8.3-mbstring_8.3.11-1+0~20240902.42+debian12~1.gbp1a56f8_amd64.deb ...
+#9 220.1 Unpacking php8.3-mbstring (8.3.11-1+0~20240902.42+debian12~1.gbp1a56f8) ...
+#9 220.3 Setting up libip4tc2:amd64 (1.8.9-2) ...
+#9 220.3 Setting up media-types (10.0.0) ...
+#9 220.3 Setting up libapparmor1:amd64 (3.0.8-3) ...
+#9 220.3 Setting up libsodium23:amd64 (1.0.18-1) ...
+#9 220.4 Setting up libgpm2:amd64 (1.20.7-10+b1) ...
+#9 220.4 Setting up psmisc (23.6-1) ...
+#9 220.4 Setting up libargon2-1:amd64 (0~20171227-0.3+deb12u1) ...
+#9 220.4 Setting up libdbus-1-3:amd64 (1.14.10-1~deb12u1) ...
+#9 220.4 Setting up libproc2-0:amd64 (2:4.0.2-3) ...
+#9 220.5 Setting up libncursesw6:amd64 (6.4-4) ...
+#9 220.5 Setting up libfdisk1:amd64 (2.38.1-5+deb12u1) ...
+#9 220.5 Setting up sensible-utils (0.0.17+nmu1) ...
+#9 220.5 Setting up dbus-session-bus-common (1.14.10-1~deb12u1) ...
+#9 220.5 Setting up procps (2:4.0.2-3) ...
+#9 220.6 Setting up dbus-system-bus-common (1.14.10-1~deb12u1) ...
+#9 220.7 Setting up libbsd0:amd64 (0.11.7-2) ...
+#9 220.8 Setting up libjson-c5:amd64 (0.16-2) ...
+#9 220.8 Setting up debsuryorg-archive-keyring (2024.02.05+0~20240205.1+debian12~1.gbp343037) ...
+#9 220.8 Setting up dbus-bin (1.14.10-1~deb12u1) ...
+#9 220.8 Setting up libonig5:amd64 (6.9.8-1) ...
+#9 220.8 Setting up libkmod2:amd64 (30+20221128-1) ...
+#9 220.9 Setting up php-common (2:94+0~20240205.51+debian12~1.gbp6faa2e) ...
+#9 221.0 Created symlink /etc/systemd/system/timers.target.wants/phpsessionclean.timer → /lib/systemd/system/phpsessionclean.timer.
+#9 221.0 Setting up libedit2:amd64 (3.1-20221030-2) ...
+#9 221.0 Setting up dbus-daemon (1.14.10-1~deb12u1) ...
+#9 221.1 Setting up dbus (1.14.10-1~deb12u1) ...
+#9 221.1 invoke-rc.d: could not determine current runlevel
+#9 221.1 Starting system message bus: dbusdbus[570]: Unknown username "systemd-network" in message bus configuration file
+#9 221.2 dbus[570]: Unknown username "systemd-timesync" in message bus configuration file
+#9 221.2 .
+#9 221.2 Setting up libsystemd-shared:amd64 (252.30-1~deb12u2) ...
+#9 221.2 Setting up ucf (3.0043+nmu1) ...
+#9 221.3 debconf: unable to initialize frontend: Dialog
+#9 221.3 debconf: (TERM is not set, so the dialog frontend is not usable.)
+#9 221.3 debconf: falling back to frontend: Readline
+#9 221.3 debconf: unable to initialize frontend: Readline
+#9 221.3 debconf: (Can't locate Term/ReadLine.pm in @INC (you may need to install the Term::ReadLine module) (@INC contains: /etc/perl /usr/local/lib/x86_64-linux-gnu/perl/5.36.0 /usr/local/share/perl/5.36.0 /usr/lib/x86_64-linux-gnu/perl5/5.36 /usr/share/perl5 /usr/lib/x86_64-linux-gnu/perl-base /usr/lib/x86_64-linux-gnu/perl/5.36 /usr/share/perl/5.36 /usr/local/lib/site_perl) at /usr/share/perl5/Debconf/FrontEnd/Readline.pm line 7.)
+#9 221.3 debconf: falling back to frontend: Teletype
+#9 221.3 Setting up php8.3-common (8.3.11-1+0~20240902.42+debian12~1.gbp1a56f8) ...
+#9 221.4 debconf: unable to initialize frontend: Dialog
+#9 221.4 debconf: (TERM is not set, so the dialog frontend is not usable.)
+#9 221.4 debconf: falling back to frontend: Readline
+#9 221.4 debconf: unable to initialize frontend: Readline
+#9 221.4 debconf: (Can't locate Term/ReadLine.pm in @INC (you may need to install the Term::ReadLine module) (@INC contains: /etc/perl /usr/local/lib/x86_64-linux-gnu/perl/5.36.0 /usr/local/share/perl/5.36.0 /usr/lib/x86_64-linux-gnu/perl5/5.36 /usr/share/perl5 /usr/lib/x86_64-linux-gnu/perl-base /usr/lib/x86_64-linux-gnu/perl/5.36 /usr/share/perl/5.36 /usr/local/lib/site_perl) at /usr/share/perl5/Debconf/FrontEnd/Readline.pm line 7.)
+#9 221.4 debconf: falling back to frontend: Teletype
+#9 221.4 
+#9 221.4 Creating config file /etc/php/8.3/mods-available/calendar.ini with new version
+#9 221.7 debconf: unable to initialize frontend: Dialog
+#9 221.7 debconf: (TERM is not set, so the dialog frontend is not usable.)
+#9 221.7 debconf: falling back to frontend: Readline
+#9 221.7 debconf: unable to initialize frontend: Readline
+#9 221.7 debconf: (Can't locate Term/ReadLine.pm in @INC (you may need to install the Term::ReadLine module) (@INC contains: /etc/perl /usr/local/lib/x86_64-linux-gnu/perl/5.36.0 /usr/local/share/perl/5.36.0 /usr/lib/x86_64-linux-gnu/perl5/5.36 /usr/share/perl5 /usr/lib/x86_64-linux-gnu/perl-base /usr/lib/x86_64-linux-gnu/perl/5.36 /usr/share/perl/5.36 /usr/local/lib/site_perl) at /usr/share/perl5/Debconf/FrontEnd/Readline.pm line 7.)
+#9 221.7 debconf: falling back to frontend: Teletype
+#9 221.8 
+#9 221.8 Creating config file /etc/php/8.3/mods-available/ctype.ini with new version
+#9 222.0 debconf: unable to initialize frontend: Dialog
+#9 222.0 debconf: (TERM is not set, so the dialog frontend is not usable.)
+#9 222.0 debconf: falling back to frontend: Readline
+#9 222.0 debconf: unable to initialize frontend: Readline
+#9 222.0 debconf: (Can't locate Term/ReadLine.pm in @INC (you may need to install the Term::ReadLine module) (@INC contains: /etc/perl /usr/local/lib/x86_64-linux-gnu/perl/5.36.0 /usr/local/share/perl/5.36.0 /usr/lib/x86_64-linux-gnu/perl5/5.36 /usr/share/perl5 /usr/lib/x86_64-linux-gnu/perl-base /usr/lib/x86_64-linux-gnu/perl/5.36 /usr/share/perl/5.36 /usr/local/lib/site_perl) at /usr/share/perl5/Debconf/FrontEnd/Readline.pm line 7.)
+#9 222.0 debconf: falling back to frontend: Teletype
+#9 222.1 
+#9 222.1 Creating config file /etc/php/8.3/mods-available/exif.ini with new version
+#9 222.4 debconf: unable to initialize frontend: Dialog
+#9 222.4 debconf: (TERM is not set, so the dialog frontend is not usable.)
+#9 222.4 debconf: falling back to frontend: Readline
+#9 222.4 debconf: unable to initialize frontend: Readline
+#9 222.4 debconf: (Can't locate Term/ReadLine.pm in @INC (you may need to install the Term::ReadLine module) (@INC contains: /etc/perl /usr/local/lib/x86_64-linux-gnu/perl/5.36.0 /usr/local/share/perl/5.36.0 /usr/lib/x86_64-linux-gnu/perl5/5.36 /usr/share/perl5 /usr/lib/x86_64-linux-gnu/perl-base /usr/lib/x86_64-linux-gnu/perl/5.36 /usr/share/perl/5.36 /usr/local/lib/site_perl) at /usr/share/perl5/Debconf/FrontEnd/Readline.pm line 7.)
+#9 222.4 debconf: falling back to frontend: Teletype
+#9 222.4 
+#9 222.4 Creating config file /etc/php/8.3/mods-available/fileinfo.ini with new version
+#9 222.7 debconf: unable to initialize frontend: Dialog
+#9 222.7 debconf: (TERM is not set, so the dialog frontend is not usable.)
+#9 222.7 debconf: falling back to frontend: Readline
+#9 222.7 debconf: unable to initialize frontend: Readline
+#9 222.7 debconf: (Can't locate Term/ReadLine.pm in @INC (you may need to install the Term::ReadLine module) (@INC contains: /etc/perl /usr/local/lib/x86_64-linux-gnu/perl/5.36.0 /usr/local/share/perl/5.36.0 /usr/lib/x86_64-linux-gnu/perl5/5.36 /usr/share/perl5 /usr/lib/x86_64-linux-gnu/perl-base /usr/lib/x86_64-linux-gnu/perl/5.36 /usr/share/perl/5.36 /usr/local/lib/site_perl) at /usr/share/perl5/Debconf/FrontEnd/Readline.pm line 7.)
+#9 222.7 debconf: falling back to frontend: Teletype
+#9 222.7 
+#9 222.7 Creating config file /etc/php/8.3/mods-available/ffi.ini with new version
+#9 223.0 debconf: unable to initialize frontend: Dialog
+#9 223.0 debconf: (TERM is not set, so the dialog frontend is not usable.)
+#9 223.0 debconf: falling back to frontend: Readline
+#9 223.0 debconf: unable to initialize frontend: Readline
+#9 223.0 debconf: (Can't locate Term/ReadLine.pm in @INC (you may need to install the Term::ReadLine module) (@INC contains: /etc/perl /usr/local/lib/x86_64-linux-gnu/perl/5.36.0 /usr/local/share/perl/5.36.0 /usr/lib/x86_64-linux-gnu/perl5/5.36 /usr/share/perl5 /usr/lib/x86_64-linux-gnu/perl-base /usr/lib/x86_64-linux-gnu/perl/5.36 /usr/share/perl/5.36 /usr/local/lib/site_perl) at /usr/share/perl5/Debconf/FrontEnd/Readline.pm line 7.)
+#9 223.0 debconf: falling back to frontend: Teletype
+#9 223.0 
+#9 223.0 Creating config file /etc/php/8.3/mods-available/ftp.ini with new version
+#9 223.2 debconf: unable to initialize frontend: Dialog
+#9 223.2 debconf: (TERM is not set, so the dialog frontend is not usable.)
+#9 223.2 debconf: falling back to frontend: Readline
+#9 223.2 debconf: unable to initialize frontend: Readline
+#9 223.2 debconf: (Can't locate Term/ReadLine.pm in @INC (you may need to install the Term::ReadLine module) (@INC contains: /etc/perl /usr/local/lib/x86_64-linux-gnu/perl/5.36.0 /usr/local/share/perl/5.36.0 /usr/lib/x86_64-linux-gnu/perl5/5.36 /usr/share/perl5 /usr/lib/x86_64-linux-gnu/perl-base /usr/lib/x86_64-linux-gnu/perl/5.36 /usr/share/perl/5.36 /usr/local/lib/site_perl) at /usr/share/perl5/Debconf/FrontEnd/Readline.pm line 7.)
+#9 223.2 debconf: falling back to frontend: Teletype
+#9 223.3 
+#9 223.3 Creating config file /etc/php/8.3/mods-available/gettext.ini with new version
+#9 223.5 debconf: unable to initialize frontend: Dialog
+#9 223.5 debconf: (TERM is not set, so the dialog frontend is not usable.)
+#9 223.5 debconf: falling back to frontend: Readline
+#9 223.5 debconf: unable to initialize frontend: Readline
+#9 223.5 debconf: (Can't locate Term/ReadLine.pm in @INC (you may need to install the Term::ReadLine module) (@INC contains: /etc/perl /usr/local/lib/x86_64-linux-gnu/perl/5.36.0 /usr/local/share/perl/5.36.0 /usr/lib/x86_64-linux-gnu/perl5/5.36 /usr/share/perl5 /usr/lib/x86_64-linux-gnu/perl-base /usr/lib/x86_64-linux-gnu/perl/5.36 /usr/share/perl/5.36 /usr/local/lib/site_perl) at /usr/share/perl5/Debconf/FrontEnd/Readline.pm line 7.)
+#9 223.5 debconf: falling back to frontend: Teletype
+#9 223.6 
+#9 223.6 Creating config file /etc/php/8.3/mods-available/iconv.ini with new version
+#9 223.9 debconf: unable to initialize frontend: Dialog
+#9 223.9 debconf: (TERM is not set, so the dialog frontend is not usable.)
+#9 223.9 debconf: falling back to frontend: Readline
+#9 223.9 debconf: unable to initialize frontend: Readline
+#9 223.9 debconf: (Can't locate Term/ReadLine.pm in @INC (you may need to install the Term::ReadLine module) (@INC contains: /etc/perl /usr/local/lib/x86_64-linux-gnu/perl/5.36.0 /usr/local/share/perl/5.36.0 /usr/lib/x86_64-linux-gnu/perl5/5.36 /usr/share/perl5 /usr/lib/x86_64-linux-gnu/perl-base /usr/lib/x86_64-linux-gnu/perl/5.36 /usr/share/perl/5.36 /usr/local/lib/site_perl) at /usr/share/perl5/Debconf/FrontEnd/Readline.pm line 7.)
+#9 223.9 debconf: falling back to frontend: Teletype
+#9 223.9 
+#9 223.9 Creating config file /etc/php/8.3/mods-available/pdo.ini with new version
+#9 224.2 debconf: unable to initialize frontend: Dialog
+#9 224.2 debconf: (TERM is not set, so the dialog frontend is not usable.)
+#9 224.2 debconf: falling back to frontend: Readline
+#9 224.2 debconf: unable to initialize frontend: Readline
+#9 224.2 debconf: (Can't locate Term/ReadLine.pm in @INC (you may need to install the Term::ReadLine module) (@INC contains: /etc/perl /usr/local/lib/x86_64-linux-gnu/perl/5.36.0 /usr/local/share/perl/5.36.0 /usr/lib/x86_64-linux-gnu/perl5/5.36 /usr/share/perl5 /usr/lib/x86_64-linux-gnu/perl-base /usr/lib/x86_64-linux-gnu/perl/5.36 /usr/share/perl/5.36 /usr/local/lib/site_perl) at /usr/share/perl5/Debconf/FrontEnd/Readline.pm line 7.)
+#9 224.2 debconf: falling back to frontend: Teletype
+#9 224.2 
+#9 224.2 Creating config file /etc/php/8.3/mods-available/phar.ini with new version
+#9 224.5 debconf: unable to initialize frontend: Dialog
+#9 224.5 debconf: (TERM is not set, so the dialog frontend is not usable.)
+#9 224.5 debconf: falling back to frontend: Readline
+#9 224.5 debconf: unable to initialize frontend: Readline
+#9 224.5 debconf: (Can't locate Term/ReadLine.pm in @INC (you may need to install the Term::ReadLine module) (@INC contains: /etc/perl /usr/local/lib/x86_64-linux-gnu/perl/5.36.0 /usr/local/share/perl/5.36.0 /usr/lib/x86_64-linux-gnu/perl5/5.36 /usr/share/perl5 /usr/lib/x86_64-linux-gnu/perl-base /usr/lib/x86_64-linux-gnu/perl/5.36 /usr/share/perl/5.36 /usr/local/lib/site_perl) at /usr/share/perl5/Debconf/FrontEnd/Readline.pm line 7.)
+#9 224.5 debconf: falling back to frontend: Teletype
+#9 224.5 
+#9 224.5 Creating config file /etc/php/8.3/mods-available/posix.ini with new version
+#9 224.8 debconf: unable to initialize frontend: Dialog
+#9 224.8 debconf: (TERM is not set, so the dialog frontend is not usable.)
+#9 224.8 debconf: falling back to frontend: Readline
+#9 224.8 debconf: unable to initialize frontend: Readline
+#9 224.8 debconf: (Can't locate Term/ReadLine.pm in @INC (you may need to install the Term::ReadLine module) (@INC contains: /etc/perl /usr/local/lib/x86_64-linux-gnu/perl/5.36.0 /usr/local/share/perl/5.36.0 /usr/lib/x86_64-linux-gnu/perl5/5.36 /usr/share/perl5 /usr/lib/x86_64-linux-gnu/perl-base /usr/lib/x86_64-linux-gnu/perl/5.36 /usr/share/perl/5.36 /usr/local/lib/site_perl) at /usr/share/perl5/Debconf/FrontEnd/Readline.pm line 7.)
+#9 224.8 debconf: falling back to frontend: Teletype
+#9 224.8 
+#9 224.8 Creating config file /etc/php/8.3/mods-available/shmop.ini with new version
+#9 225.1 debconf: unable to initialize frontend: Dialog
+#9 225.1 debconf: (TERM is not set, so the dialog frontend is not usable.)
+#9 225.1 debconf: falling back to frontend: Readline
+#9 225.1 debconf: unable to initialize frontend: Readline
+#9 225.1 debconf: (Can't locate Term/ReadLine.pm in @INC (you may need to install the Term::ReadLine module) (@INC contains: /etc/perl /usr/local/lib/x86_64-linux-gnu/perl/5.36.0 /usr/local/share/perl/5.36.0 /usr/lib/x86_64-linux-gnu/perl5/5.36 /usr/share/perl5 /usr/lib/x86_64-linux-gnu/perl-base /usr/lib/x86_64-linux-gnu/perl/5.36 /usr/share/perl/5.36 /usr/local/lib/site_perl) at /usr/share/perl5/Debconf/FrontEnd/Readline.pm line 7.)
+#9 225.1 debconf: falling back to frontend: Teletype
+#9 225.2 
+#9 225.2 Creating config file /etc/php/8.3/mods-available/sockets.ini with new version
+#9 225.4 debconf: unable to initialize frontend: Dialog
+#9 225.4 debconf: (TERM is not set, so the dialog frontend is not usable.)
+#9 225.4 debconf: falling back to frontend: Readline
+#9 225.4 debconf: unable to initialize frontend: Readline
+#9 225.4 debconf: (Can't locate Term/ReadLine.pm in @INC (you may need to install the Term::ReadLine module) (@INC contains: /etc/perl /usr/local/lib/x86_64-linux-gnu/perl/5.36.0 /usr/local/share/perl/5.36.0 /usr/lib/x86_64-linux-gnu/perl5/5.36 /usr/share/perl5 /usr/lib/x86_64-linux-gnu/perl-base /usr/lib/x86_64-linux-gnu/perl/5.36 /usr/share/perl/5.36 /usr/local/lib/site_perl) at /usr/share/perl5/Debconf/FrontEnd/Readline.pm line 7.)
+#9 225.4 debconf: falling back to frontend: Teletype
+#9 225.4 
+#9 225.4 Creating config file /etc/php/8.3/mods-available/sysvmsg.ini with new version
+#9 225.7 debconf: unable to initialize frontend: Dialog
+#9 225.7 debconf: (TERM is not set, so the dialog frontend is not usable.)
+#9 225.7 debconf: falling back to frontend: Readline
+#9 225.7 debconf: unable to initialize frontend: Readline
+#9 225.7 debconf: (Can't locate Term/ReadLine.pm in @INC (you may need to install the Term::ReadLine module) (@INC contains: /etc/perl /usr/local/lib/x86_64-linux-gnu/perl/5.36.0 /usr/local/share/perl/5.36.0 /usr/lib/x86_64-linux-gnu/perl5/5.36 /usr/share/perl5 /usr/lib/x86_64-linux-gnu/perl-base /usr/lib/x86_64-linux-gnu/perl/5.36 /usr/share/perl/5.36 /usr/local/lib/site_perl) at /usr/share/perl5/Debconf/FrontEnd/Readline.pm line 7.)
+#9 225.7 debconf: falling back to frontend: Teletype
+#9 225.7 
+#9 225.7 Creating config file /etc/php/8.3/mods-available/sysvsem.ini with new version
+#9 226.0 debconf: unable to initialize frontend: Dialog
+#9 226.0 debconf: (TERM is not set, so the dialog frontend is not usable.)
+#9 226.0 debconf: falling back to frontend: Readline
+#9 226.0 debconf: unable to initialize frontend: Readline
+#9 226.0 debconf: (Can't locate Term/ReadLine.pm in @INC (you may need to install the Term::ReadLine module) (@INC contains: /etc/perl /usr/local/lib/x86_64-linux-gnu/perl/5.36.0 /usr/local/share/perl/5.36.0 /usr/lib/x86_64-linux-gnu/perl5/5.36 /usr/share/perl5 /usr/lib/x86_64-linux-gnu/perl-base /usr/lib/x86_64-linux-gnu/perl/5.36 /usr/share/perl/5.36 /usr/local/lib/site_perl) at /usr/share/perl5/Debconf/FrontEnd/Readline.pm line 7.)
+#9 226.0 debconf: falling back to frontend: Teletype
+#9 226.0 
+#9 226.0 Creating config file /etc/php/8.3/mods-available/sysvshm.ini with new version
+#9 226.3 debconf: unable to initialize frontend: Dialog
+#9 226.3 debconf: (TERM is not set, so the dialog frontend is not usable.)
+#9 226.3 debconf: falling back to frontend: Readline
+#9 226.3 debconf: unable to initialize frontend: Readline
+#9 226.3 debconf: (Can't locate Term/ReadLine.pm in @INC (you may need to install the Term::ReadLine module) (@INC contains: /etc/perl /usr/local/lib/x86_64-linux-gnu/perl/5.36.0 /usr/local/share/perl/5.36.0 /usr/lib/x86_64-linux-gnu/perl5/5.36 /usr/share/perl5 /usr/lib/x86_64-linux-gnu/perl-base /usr/lib/x86_64-linux-gnu/perl/5.36 /usr/share/perl/5.36 /usr/local/lib/site_perl) at /usr/share/perl5/Debconf/FrontEnd/Readline.pm line 7.)
+#9 226.3 debconf: falling back to frontend: Teletype
+#9 226.3 
+#9 226.3 Creating config file /etc/php/8.3/mods-available/tokenizer.ini with new version
+#9 226.6 Setting up php8.3-mbstring (8.3.11-1+0~20240902.42+debian12~1.gbp1a56f8) ...
+#9 226.7 debconf: unable to initialize frontend: Dialog
+#9 226.7 debconf: (TERM is not set, so the dialog frontend is not usable.)
+#9 226.7 debconf: falling back to frontend: Readline
+#9 226.7 debconf: unable to initialize frontend: Readline
+#9 226.7 debconf: (Can't locate Term/ReadLine.pm in @INC (you may need to install the Term::ReadLine module) (@INC contains: /etc/perl /usr/local/lib/x86_64-linux-gnu/perl/5.36.0 /usr/local/share/perl/5.36.0 /usr/lib/x86_64-linux-gnu/perl5/5.36 /usr/share/perl5 /usr/lib/x86_64-linux-gnu/perl-base /usr/lib/x86_64-linux-gnu/perl/5.36 /usr/share/perl/5.36 /usr/local/lib/site_perl) at /usr/share/perl5/Debconf/FrontEnd/Readline.pm line 7.)
+#9 226.7 debconf: falling back to frontend: Teletype
+#9 226.7 
+#9 226.7 Creating config file /etc/php/8.3/mods-available/mbstring.ini with new version
+#9 226.9 Setting up php8.3-readline (8.3.11-1+0~20240902.42+debian12~1.gbp1a56f8) ...
+#9 227.0 debconf: unable to initialize frontend: Dialog
+#9 227.0 debconf: (TERM is not set, so the dialog frontend is not usable.)
+#9 227.0 debconf: falling back to frontend: Readline
+#9 227.0 debconf: unable to initialize frontend: Readline
+#9 227.0 debconf: (Can't locate Term/ReadLine.pm in @INC (you may need to install the Term::ReadLine module) (@INC contains: /etc/perl /usr/local/lib/x86_64-linux-gnu/perl/5.36.0 /usr/local/share/perl/5.36.0 /usr/lib/x86_64-linux-gnu/perl5/5.36 /usr/share/perl5 /usr/lib/x86_64-linux-gnu/perl-base /usr/lib/x86_64-linux-gnu/perl/5.36 /usr/share/perl/5.36 /usr/local/lib/site_perl) at /usr/share/perl5/Debconf/FrontEnd/Readline.pm line 7.)
+#9 227.0 debconf: falling back to frontend: Teletype
+#9 227.0 
+#9 227.0 Creating config file /etc/php/8.3/mods-available/readline.ini with new version
+#9 227.3 Setting up php8.3-bz2 (8.3.11-1+0~20240902.42+debian12~1.gbp1a56f8) ...
+#9 227.4 debconf: unable to initialize frontend: Dialog
+#9 227.4 debconf: (TERM is not set, so the dialog frontend is not usable.)
+#9 227.4 debconf: falling back to frontend: Readline
+#9 227.4 debconf: unable to initialize frontend: Readline
+#9 227.4 debconf: (Can't locate Term/ReadLine.pm in @INC (you may need to install the Term::ReadLine module) (@INC contains: /etc/perl /usr/local/lib/x86_64-linux-gnu/perl/5.36.0 /usr/local/share/perl/5.36.0 /usr/lib/x86_64-linux-gnu/perl5/5.36 /usr/share/perl5 /usr/lib/x86_64-linux-gnu/perl-base /usr/lib/x86_64-linux-gnu/perl/5.36 /usr/share/perl/5.36 /usr/local/lib/site_perl) at /usr/share/perl5/Debconf/FrontEnd/Readline.pm line 7.)
+#9 227.4 debconf: falling back to frontend: Teletype
+#9 227.4 
+#9 227.4 Creating config file /etc/php/8.3/mods-available/bz2.ini with new version
+#9 227.7 Setting up php8.3-opcache (8.3.11-1+0~20240902.42+debian12~1.gbp1a56f8) ...
+#9 227.8 debconf: unable to initialize frontend: Dialog
+#9 227.8 debconf: (TERM is not set, so the dialog frontend is not usable.)
+#9 227.8 debconf: falling back to frontend: Readline
+#9 227.8 debconf: unable to initialize frontend: Readline
+#9 227.8 debconf: (Can't locate Term/ReadLine.pm in @INC (you may need to install the Term::ReadLine module) (@INC contains: /etc/perl /usr/local/lib/x86_64-linux-gnu/perl/5.36.0 /usr/local/share/perl/5.36.0 /usr/lib/x86_64-linux-gnu/perl5/5.36 /usr/share/perl5 /usr/lib/x86_64-linux-gnu/perl-base /usr/lib/x86_64-linux-gnu/perl/5.36 /usr/share/perl/5.36 /usr/local/lib/site_perl) at /usr/share/perl5/Debconf/FrontEnd/Readline.pm line 7.)
+#9 227.8 debconf: falling back to frontend: Teletype
+#9 227.8 
+#9 227.8 Creating config file /etc/php/8.3/mods-available/opcache.ini with new version
+#9 228.0 Setting up php8.3-curl (8.3.11-1+0~20240902.42+debian12~1.gbp1a56f8) ...
+#9 228.1 debconf: unable to initialize frontend: Dialog
+#9 228.1 debconf: (TERM is not set, so the dialog frontend is not usable.)
+#9 228.1 debconf: falling back to frontend: Readline
+#9 228.1 debconf: unable to initialize frontend: Readline
+#9 228.1 debconf: (Can't locate Term/ReadLine.pm in @INC (you may need to install the Term::ReadLine module) (@INC contains: /etc/perl /usr/local/lib/x86_64-linux-gnu/perl/5.36.0 /usr/local/share/perl/5.36.0 /usr/lib/x86_64-linux-gnu/perl5/5.36 /usr/share/perl5 /usr/lib/x86_64-linux-gnu/perl-base /usr/lib/x86_64-linux-gnu/perl/5.36 /usr/share/perl/5.36 /usr/local/lib/site_perl) at /usr/share/perl5/Debconf/FrontEnd/Readline.pm line 7.)
+#9 228.1 debconf: falling back to frontend: Teletype
+#9 228.1 
+#9 228.1 Creating config file /etc/php/8.3/mods-available/curl.ini with new version
+#9 228.4 Setting up php8.3-intl (8.3.11-1+0~20240902.42+debian12~1.gbp1a56f8) ...
+#9 228.5 debconf: unable to initialize frontend: Dialog
+#9 228.5 debconf: (TERM is not set, so the dialog frontend is not usable.)
+#9 228.5 debconf: falling back to frontend: Readline
+#9 228.5 debconf: unable to initialize frontend: Readline
+#9 228.5 debconf: (Can't locate Term/ReadLine.pm in @INC (you may need to install the Term::ReadLine module) (@INC contains: /etc/perl /usr/local/lib/x86_64-linux-gnu/perl/5.36.0 /usr/local/share/perl/5.36.0 /usr/lib/x86_64-linux-gnu/perl5/5.36 /usr/share/perl5 /usr/lib/x86_64-linux-gnu/perl-base /usr/lib/x86_64-linux-gnu/perl/5.36 /usr/share/perl/5.36 /usr/local/lib/site_perl) at /usr/share/perl5/Debconf/FrontEnd/Readline.pm line 7.)
+#9 228.5 debconf: falling back to frontend: Teletype
+#9 228.5 
+#9 228.5 Creating config file /etc/php/8.3/mods-available/intl.ini with new version
+#9 228.7 Setting up php8.3-cli (8.3.11-1+0~20240902.42+debian12~1.gbp1a56f8) ...
+#9 228.7 update-alternatives: using /usr/bin/php8.3 to provide /usr/bin/php (php) in auto mode
+#9 228.7 update-alternatives: warning: skip creation of /usr/share/man/man1/php.1.gz because associated file /usr/share/man/man1/php8.3.1.gz (of link group php) doesn't exist
+#9 228.7 update-alternatives: using /usr/bin/phar8.3 to provide /usr/bin/phar (phar) in auto mode
+#9 228.7 update-alternatives: warning: skip creation of /usr/share/man/man1/phar.1.gz because associated file /usr/share/man/man1/phar8.3.1.gz (of link group phar) doesn't exist
+#9 228.7 update-alternatives: using /usr/bin/phar.phar8.3 to provide /usr/bin/phar.phar (phar.phar) in auto mode
+#9 228.7 update-alternatives: warning: skip creation of /usr/share/man/man1/phar.phar.1.gz because associated file /usr/share/man/man1/phar.phar8.3.1.gz (of link group phar.phar) doesn't exist
+#9 228.9 debconf: unable to initialize frontend: Dialog
+#9 228.9 debconf: (TERM is not set, so the dialog frontend is not usable.)
+#9 228.9 debconf: falling back to frontend: Readline
+#9 228.9 debconf: unable to initialize frontend: Readline
+#9 228.9 debconf: (Can't locate Term/ReadLine.pm in @INC (you may need to install the Term::ReadLine module) (@INC contains: /etc/perl /usr/local/lib/x86_64-linux-gnu/perl/5.36.0 /usr/local/share/perl/5.36.0 /usr/lib/x86_64-linux-gnu/perl5/5.36 /usr/share/perl5 /usr/lib/x86_64-linux-gnu/perl-base /usr/lib/x86_64-linux-gnu/perl/5.36 /usr/share/perl/5.36 /usr/local/lib/site_perl) at /usr/share/perl5/Debconf/FrontEnd/Readline.pm line 7.)
+#9 228.9 debconf: falling back to frontend: Teletype
+#9 228.9 
+#9 228.9 Creating config file /etc/php/8.3/cli/php.ini with new version
+#9 230.0 Setting up libdevmapper1.02.1:amd64 (2:1.02.185-2) ...
+#9 230.0 Setting up dmsetup (2:1.02.185-2) ...
+#9 230.0 Setting up libcryptsetup12:amd64 (2:2.6.1-4~deb12u2) ...
+#9 230.0 Setting up systemd (252.30-1~deb12u2) ...
+#9 230.1 Created symlink /etc/systemd/system/getty.target.wants/getty@tty1.service → /lib/systemd/system/getty@.service.
+#9 230.1 Created symlink /etc/systemd/system/multi-user.target.wants/remote-fs.target → /lib/systemd/system/remote-fs.target.
+#9 230.1 Created symlink /etc/systemd/system/sysinit.target.wants/systemd-pstore.service → /lib/systemd/system/systemd-pstore.service.
+#9 230.1 Initializing machine ID from D-Bus machine ID.
+#9 230.2 Creating group 'systemd-journal' with GID 999.
+#9 230.2 Creating group 'systemd-network' with GID 998.
+#9 230.2 Creating user 'systemd-network' (systemd Network Management) with UID 998 and GID 998.
+#9 230.3 Setting up systemd-timesyncd (252.30-1~deb12u2) ...
+#9 230.3 Creating group 'systemd-timesync' with GID 997.
+#9 230.3 Creating user 'systemd-timesync' (systemd Time Synchronization) with UID 997 and GID 997.
+#9 230.5 Created symlink /etc/systemd/system/dbus-org.freedesktop.timesync1.service → /lib/systemd/system/systemd-timesyncd.service.
+#9 230.5 Created symlink /etc/systemd/system/sysinit.target.wants/systemd-timesyncd.service → /lib/systemd/system/systemd-timesyncd.service.
+#9 230.5 Setting up php8.3-fpm (8.3.11-1+0~20240902.42+debian12~1.gbp1a56f8) ...
+#9 230.6 debconf: unable to initialize frontend: Dialog
+#9 230.6 debconf: (TERM is not set, so the dialog frontend is not usable.)
+#9 230.6 debconf: falling back to frontend: Readline
+#9 230.6 debconf: unable to initialize frontend: Readline
+#9 230.6 debconf: (Can't locate Term/ReadLine.pm in @INC (you may need to install the Term::ReadLine module) (@INC contains: /etc/perl /usr/local/lib/x86_64-linux-gnu/perl/5.36.0 /usr/local/share/perl/5.36.0 /usr/lib/x86_64-linux-gnu/perl5/5.36 /usr/share/perl5 /usr/lib/x86_64-linux-gnu/perl-base /usr/lib/x86_64-linux-gnu/perl/5.36 /usr/share/perl/5.36 /usr/local/lib/site_perl) at /usr/share/perl5/Debconf/FrontEnd/Readline.pm line 7.)
+#9 230.6 debconf: falling back to frontend: Teletype
+#9 230.7 
+#9 230.7 Creating config file /etc/php/8.3/fpm/php.ini with new version
+#9 231.7 Created symlink /etc/systemd/system/multi-user.target.wants/php8.3-fpm.service → /lib/systemd/system/php8.3-fpm.service.
+#9 231.7 invoke-rc.d: could not determine current runlevel
+#9 231.8 Setting up php8.3 (8.3.11-1+0~20240902.42+debian12~1.gbp1a56f8) ...
+#9 231.8 Processing triggers for libc-bin (2.36-9+deb12u8) ...
+#9 231.8 Processing triggers for php8.3-cli (8.3.11-1+0~20240902.42+debian12~1.gbp1a56f8) ...
+#9 231.9 Processing triggers for php8.3-fpm (8.3.11-1+0~20240902.42+debian12~1.gbp1a56f8) ...
+#9 231.9 invoke-rc.d: could not determine current runlevel
+#9 231.9 Restarting PHP 8.3 FastCGI Process Manager: php-fpm8.3 failed!
+#9 DONE 272.1s
 
-#10 [ 5/19] RUN apt-get install -y php8.3-fpm
-#10 0.414 Reading package lists...
-#10 0.789 Building dependency tree...
-#10 0.878 Reading state information...
-#10 0.978 The following additional packages will be installed:
-#10 0.978   dbus dbus-bin dbus-daemon dbus-session-bus-common dbus-system-bus-common
-#10 0.978   dmsetup libapparmor1 libcryptsetup12 libdbus-1-3 libdevmapper1.02.1
-#10 0.978   libfdisk1 libip4tc2 libjson-c5 libkmod2 libsystemd-shared systemd
-#10 0.978   systemd-timesyncd
-#10 0.979 Suggested packages:
-#10 0.979   default-dbus-session-bus | dbus-session-bus php-pear systemd-container
-#10 0.979   systemd-homed systemd-userdbd systemd-boot systemd-resolved libfido2-1
-#10 0.979   libqrencode4 libtss2-esys-3.0.2-0 libtss2-mu0 libtss2-rc0 polkitd
-#10 0.979   | policykit-1
-#10 1.074 The following NEW packages will be installed:
-#10 1.074   dbus dbus-bin dbus-daemon dbus-session-bus-common dbus-system-bus-common
-#10 1.074   dmsetup libapparmor1 libcryptsetup12 libdbus-1-3 libdevmapper1.02.1
-#10 1.075   libfdisk1 libip4tc2 libjson-c5 libkmod2 libsystemd-shared php8.3-fpm systemd
-#10 1.075   systemd-timesyncd
-#10 1.161 0 upgraded, 18 newly installed, 0 to remove and 2 not upgraded.
-#10 1.161 Need to get 8112 kB of archives.
-#10 1.161 After this operation, 25.2 MB of additional disk space will be used.
-#10 1.161 Get:1 http://deb.debian.org/debian bookworm/main amd64 dmsetup amd64 2:1.02.185-2 [82.0 kB]
-#10 1.220 Get:2 http://deb.debian.org/debian bookworm/main amd64 libdevmapper1.02.1 amd64 2:1.02.185-2 [133 kB]
-#10 1.256 Get:3 http://deb.debian.org/debian bookworm/main amd64 libjson-c5 amd64 0.16-2 [44.1 kB]
-#10 1.260 Get:4 http://deb.debian.org/debian bookworm/main amd64 libcryptsetup12 amd64 2:2.6.1-4~deb12u2 [223 kB]
-#10 1.262 Get:5 https://packages.sury.org/php bookworm/main amd64 php8.3-fpm amd64 8.3.11-1+0~20240902.42+debian12~1.gbp1a56f8 [1781 kB]
-#10 1.283 Get:6 http://deb.debian.org/debian bookworm/main amd64 libfdisk1 amd64 2.38.1-5+deb12u1 [193 kB]
-#10 1.299 Get:7 http://deb.debian.org/debian bookworm/main amd64 libkmod2 amd64 30+20221128-1 [57.9 kB]
-#10 1.304 Get:8 http://deb.debian.org/debian bookworm/main amd64 libapparmor1 amd64 3.0.8-3 [41.2 kB]
-#10 1.307 Get:9 http://deb.debian.org/debian bookworm/main amd64 libip4tc2 amd64 1.8.9-2 [19.0 kB]
-#10 1.309 Get:10 http://deb.debian.org/debian bookworm/main amd64 libsystemd-shared amd64 252.30-1~deb12u2 [1694 kB]
-#10 1.472 Get:11 http://deb.debian.org/debian bookworm/main amd64 systemd amd64 252.30-1~deb12u2 [3035 kB]
-#10 1.916 Get:12 http://deb.debian.org/debian bookworm/main amd64 libdbus-1-3 amd64 1.14.10-1~deb12u1 [201 kB]
-#10 1.931 Get:13 http://deb.debian.org/debian bookworm/main amd64 dbus-bin amd64 1.14.10-1~deb12u1 [105 kB]
-#10 1.937 Get:14 http://deb.debian.org/debian bookworm/main amd64 dbus-session-bus-common all 1.14.10-1~deb12u1 [78.2 kB]
-#10 1.939 Get:15 http://deb.debian.org/debian bookworm/main amd64 dbus-daemon amd64 1.14.10-1~deb12u1 [184 kB]
-#10 1.954 Get:16 http://deb.debian.org/debian bookworm/main amd64 dbus-system-bus-common all 1.14.10-1~deb12u1 [79.3 kB]
-#10 1.955 Get:17 http://deb.debian.org/debian bookworm/main amd64 dbus amd64 1.14.10-1~deb12u1 [97.4 kB]
-#10 1.957 Get:18 http://deb.debian.org/debian bookworm/main amd64 systemd-timesyncd amd64 252.30-1~deb12u2 [63.6 kB]
-#10 2.048 debconf: delaying package configuration, since apt-utils is not installed
-#10 2.070 Fetched 8112 kB in 1s (9240 kB/s)
-#10 2.099 Selecting previously unselected package dmsetup.
-#10 2.099 (Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 10117 files and directories currently installed.)
-#10 2.112 Preparing to unpack .../00-dmsetup_2%3a1.02.185-2_amd64.deb ...
-#10 2.128 Unpacking dmsetup (2:1.02.185-2) ...
-#10 2.191 Selecting previously unselected package libdevmapper1.02.1:amd64.
-#10 2.197 Preparing to unpack .../01-libdevmapper1.02.1_2%3a1.02.185-2_amd64.deb ...
-#10 2.209 Unpacking libdevmapper1.02.1:amd64 (2:1.02.185-2) ...
-#10 2.289 Selecting previously unselected package libjson-c5:amd64.
-#10 2.294 Preparing to unpack .../02-libjson-c5_0.16-2_amd64.deb ...
-#10 2.301 Unpacking libjson-c5:amd64 (0.16-2) ...
-#10 2.371 Selecting previously unselected package libcryptsetup12:amd64.
-#10 2.376 Preparing to unpack .../03-libcryptsetup12_2%3a2.6.1-4~deb12u2_amd64.deb ...
-#10 2.383 Unpacking libcryptsetup12:amd64 (2:2.6.1-4~deb12u2) ...
-#10 2.463 Selecting previously unselected package libfdisk1:amd64.
-#10 2.469 Preparing to unpack .../04-libfdisk1_2.38.1-5+deb12u1_amd64.deb ...
-#10 2.475 Unpacking libfdisk1:amd64 (2.38.1-5+deb12u1) ...
-#10 2.554 Selecting previously unselected package libkmod2:amd64.
-#10 2.559 Preparing to unpack .../05-libkmod2_30+20221128-1_amd64.deb ...
-#10 2.566 Unpacking libkmod2:amd64 (30+20221128-1) ...
-#10 2.639 Selecting previously unselected package libapparmor1:amd64.
-#10 2.645 Preparing to unpack .../06-libapparmor1_3.0.8-3_amd64.deb ...
-#10 2.651 Unpacking libapparmor1:amd64 (3.0.8-3) ...
-#10 2.714 Selecting previously unselected package libip4tc2:amd64.
-#10 2.719 Preparing to unpack .../07-libip4tc2_1.8.9-2_amd64.deb ...
-#10 2.726 Unpacking libip4tc2:amd64 (1.8.9-2) ...
-#10 2.782 Selecting previously unselected package libsystemd-shared:amd64.
-#10 2.788 Preparing to unpack .../08-libsystemd-shared_252.30-1~deb12u2_amd64.deb ...
-#10 2.795 Unpacking libsystemd-shared:amd64 (252.30-1~deb12u2) ...
-#10 2.974 Selecting previously unselected package systemd.
-#10 2.979 Preparing to unpack .../09-systemd_252.30-1~deb12u2_amd64.deb ...
-#10 3.018 Unpacking systemd (252.30-1~deb12u2) ...
-#10 3.288 Selecting previously unselected package libdbus-1-3:amd64.
-#10 3.294 Preparing to unpack .../10-libdbus-1-3_1.14.10-1~deb12u1_amd64.deb ...
-#10 3.301 Unpacking libdbus-1-3:amd64 (1.14.10-1~deb12u1) ...
-#10 3.374 Selecting previously unselected package dbus-bin.
-#10 3.379 Preparing to unpack .../11-dbus-bin_1.14.10-1~deb12u1_amd64.deb ...
-#10 3.387 Unpacking dbus-bin (1.14.10-1~deb12u1) ...
-#10 3.457 Selecting previously unselected package dbus-session-bus-common.
-#10 3.462 Preparing to unpack .../12-dbus-session-bus-common_1.14.10-1~deb12u1_all.deb ...
-#10 3.469 Unpacking dbus-session-bus-common (1.14.10-1~deb12u1) ...
-#10 3.538 Selecting previously unselected package dbus-daemon.
-#10 3.544 Preparing to unpack .../13-dbus-daemon_1.14.10-1~deb12u1_amd64.deb ...
-#10 3.550 Unpacking dbus-daemon (1.14.10-1~deb12u1) ...
-#10 3.627 Selecting previously unselected package dbus-system-bus-common.
-#10 3.632 Preparing to unpack .../14-dbus-system-bus-common_1.14.10-1~deb12u1_all.deb ...
-#10 3.640 Unpacking dbus-system-bus-common (1.14.10-1~deb12u1) ...
-#10 3.725 Selecting previously unselected package dbus.
-#10 3.731 Preparing to unpack .../15-dbus_1.14.10-1~deb12u1_amd64.deb ...
-#10 3.741 Unpacking dbus (1.14.10-1~deb12u1) ...
-#10 3.827 Selecting previously unselected package systemd-timesyncd.
-#10 3.833 Preparing to unpack .../16-systemd-timesyncd_252.30-1~deb12u2_amd64.deb ...
-#10 3.839 Unpacking systemd-timesyncd (252.30-1~deb12u2) ...
-#10 3.921 Selecting previously unselected package php8.3-fpm.
-#10 3.926 Preparing to unpack .../17-php8.3-fpm_8.3.11-1+0~20240902.42+debian12~1.gbp1a56f8_amd64.deb ...
-#10 3.943 Unpacking php8.3-fpm (8.3.11-1+0~20240902.42+debian12~1.gbp1a56f8) ...
-#10 4.129 Setting up libip4tc2:amd64 (1.8.9-2) ...
-#10 4.149 Setting up libapparmor1:amd64 (3.0.8-3) ...
-#10 4.168 Setting up libdbus-1-3:amd64 (1.14.10-1~deb12u1) ...
-#10 4.189 Setting up libfdisk1:amd64 (2.38.1-5+deb12u1) ...
-#10 4.209 Setting up dbus-session-bus-common (1.14.10-1~deb12u1) ...
-#10 4.228 Setting up dbus-system-bus-common (1.14.10-1~deb12u1) ...
-#10 4.337 Setting up libjson-c5:amd64 (0.16-2) ...
-#10 4.357 Setting up dbus-bin (1.14.10-1~deb12u1) ...
-#10 4.377 Setting up libkmod2:amd64 (30+20221128-1) ...
-#10 4.397 Setting up dbus-daemon (1.14.10-1~deb12u1) ...
-#10 4.440 Setting up dbus (1.14.10-1~deb12u1) ...
-#10 4.503 invoke-rc.d: could not determine current runlevel
-#10 4.507 invoke-rc.d: policy-rc.d denied execution of start.
-#10 4.514 Setting up libsystemd-shared:amd64 (252.30-1~deb12u2) ...
-#10 4.535 Setting up libdevmapper1.02.1:amd64 (2:1.02.185-2) ...
-#10 4.556 Setting up dmsetup (2:1.02.185-2) ...
-#10 4.587 Setting up libcryptsetup12:amd64 (2:2.6.1-4~deb12u2) ...
-#10 4.608 Setting up systemd (252.30-1~deb12u2) ...
-#10 4.677 Created symlink /etc/systemd/system/getty.target.wants/getty@tty1.service → /lib/systemd/system/getty@.service.
-#10 4.679 Created symlink /etc/systemd/system/multi-user.target.wants/remote-fs.target → /lib/systemd/system/remote-fs.target.
-#10 4.685 Created symlink /etc/systemd/system/sysinit.target.wants/systemd-pstore.service → /lib/systemd/system/systemd-pstore.service.
-#10 4.690 Initializing machine ID from D-Bus machine ID.
-#10 4.732 Creating group 'systemd-journal' with GID 999.
-#10 4.732 Creating group 'systemd-network' with GID 998.
-#10 4.732 Creating user 'systemd-network' (systemd Network Management) with UID 998 and GID 998.
-#10 4.828 Setting up systemd-timesyncd (252.30-1~deb12u2) ...
-#10 4.862 Creating group 'systemd-timesync' with GID 997.
-#10 4.862 Creating user 'systemd-timesync' (systemd Time Synchronization) with UID 997 and GID 997.
-#10 5.001 Created symlink /etc/systemd/system/dbus-org.freedesktop.timesync1.service → /lib/systemd/system/systemd-timesyncd.service.
-#10 5.001 Created symlink /etc/systemd/system/sysinit.target.wants/systemd-timesyncd.service → /lib/systemd/system/systemd-timesyncd.service.
-#10 5.024 Setting up php8.3-fpm (8.3.11-1+0~20240902.42+debian12~1.gbp1a56f8) ...
-#10 5.179 debconf: unable to initialize frontend: Dialog
-#10 5.179 debconf: (TERM is not set, so the dialog frontend is not usable.)
-#10 5.179 debconf: falling back to frontend: Readline
-#10 5.183 debconf: unable to initialize frontend: Readline
-#10 5.183 debconf: (This frontend requires a controlling tty.)
-#10 5.183 debconf: falling back to frontend: Teletype
-#10 5.205 
-#10 5.205 Creating config file /etc/php/8.3/fpm/php.ini with new version
-#10 6.470 NOTICE: Not enabling PHP 8.3 FPM by default.
-#10 6.473 NOTICE: To enable PHP 8.3 FPM in Apache2 do:
-#10 6.476 NOTICE: a2enmod proxy_fcgi setenvif
-#10 6.479 NOTICE: a2enconf php8.3-fpm
-#10 6.482 NOTICE: You are seeing this message because you have apache2 package installed.
-#10 6.574 Created symlink /etc/systemd/system/multi-user.target.wants/php8.3-fpm.service → /lib/systemd/system/php8.3-fpm.service.
-#10 6.587 invoke-rc.d: could not determine current runlevel
-#10 6.590 invoke-rc.d: policy-rc.d denied execution of start.
-#10 6.609 Processing triggers for libc-bin (2.36-9+deb12u8) ...
-#10 6.638 Processing triggers for php8.3-fpm (8.3.11-1+0~20240902.42+debian12~1.gbp1a56f8) ...
-#10 6.665 invoke-rc.d: could not determine current runlevel
-#10 6.671 invoke-rc.d: policy-rc.d denied execution of restart.
-#10 6.672 NOTICE: Not enabling PHP 8.3 FPM by default.
-#10 6.675 NOTICE: To enable PHP 8.3 FPM in Apache2 do:
-#10 6.678 NOTICE: a2enmod proxy_fcgi setenvif
-#10 6.681 NOTICE: a2enconf php8.3-fpm
-#10 6.684 NOTICE: You are seeing this message because you have apache2 package installed.
-#10 DONE 6.8s
+#10 [ 6/16] RUN rm -rf /var/lib/apt/lists/*
+#10 DONE 0.5s
 
-#11 [ 6/19] RUN rm -rf /var/lib/apt/lists/*
-#11 DONE 0.4s
-
-#12 [ 7/19] RUN a2dismod php8.3
-#12 0.581 Module php8.3 disabled.
-#12 0.581 To activate the new configuration, you need to run:
-#12 0.581   service apache2 restart
-#12 DONE 0.7s
-
-#13 [ 8/19] RUN a2dismod mpm_prefork
-#13 0.406 Module mpm_prefork disabled.
-#13 0.406 To activate the new configuration, you need to run:
-#13 0.406   service apache2 restart
-#13 DONE 0.5s
-
-#14 [ 9/19] RUN a2enmod mpm_event
-#14 0.488 Considering conflict mpm_worker for mpm_event:
-#14 0.488 Considering conflict mpm_prefork for mpm_event:
-#14 0.488 Enabling module mpm_event.
-#14 0.490 To activate the new configuration, you need to run:
-#14 0.490   service apache2 restart
-#14 DONE 0.5s
-
-#15 [10/19] RUN a2enconf php8.3-fpm
-#15 0.473 Enabling conf php8.3-fpm.
-#15 0.475 To activate the new configuration, you need to run:
-#15 0.475   service apache2 reload
-#15 DONE 0.5s
-
-#16 [11/19] RUN a2enmod dav dav_fs auth_digest authz_core
-#16 0.459 Enabling module dav.
-#16 0.461 Considering dependency dav for dav_fs:
-#16 0.461 Module dav already enabled
-#16 0.461 Enabling module dav_fs.
-#16 0.464 Considering dependency authn_core for auth_digest:
-#16 0.464 Module authn_core already enabled
-#16 0.464 Enabling module auth_digest.
-#16 0.466 Module authz_core already enabled
-#16 0.466 To activate the new configuration, you need to run:
-#16 0.466   service apache2 restart
-#16 DONE 0.5s
-
-#17 [12/19] COPY ./config/httpd.conf /usr/local/apache2/conf/custom/httpd.conf
-#17 DONE 0.1s
-
-#18 [13/19] COPY ./config/httpd-dav.conf /usr/local/apache2/conf/custom/httpd-dav.conf
-#18 DONE 0.1s
-
-#19 [14/19] COPY ./config/httpd-ssl.conf /usr/local/apache2/conf/custom/httpd-ssl.conf
-#19 DONE 0.1s
-
-#20 [15/19] COPY ./web/index.html /tmp/index.html
-#20 DONE 0.1s
-
-#21 [16/19] COPY ./docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
-#21 DONE 0.1s
-
-#22 [17/19] COPY ./php_admin /var/www/html/admin
-#22 DONE 0.1s
-
-#23 [18/19] RUN chmod +x /usr/local/bin/docker-entrypoint.sh
-#23 DONE 0.4s
-
-#24 [19/19] RUN mkdir -p /config
-#24 DONE 0.5s
-
-#25 exporting to image
-#25 exporting layers
-#25 exporting layers 0.7s done
-#25 writing image sha256:a677c265cc27ec71e1c9bb1af2e9a882a6e74eebbaf1883dd1352eca10f8d2d5 done
-#25 naming to docker.io/dockdv/webdav:latest done
-#25 DONE 0.8s
+#11 [ 7/16] RUN a2enmod proxy_fcgi proxy
+#11 0.419 /bin/bash: line 1: a2enmod: command not found
+#11 ERROR: process "/bin/bash -c a2enmod proxy_fcgi proxy" did not complete successfully: exit code: 127
+------
+ > [ 7/16] RUN a2enmod proxy_fcgi proxy:
+0.419 /bin/bash: line 1: a2enmod: command not found
+------
+Dockerfile:29
+--------------------
+  27 |     #RUN a2dismod mpm_prefork
+  28 |     
+  29 | >>> RUN a2enmod proxy_fcgi proxy
+  30 |     #RUN a2enmod mpm_event
+  31 |     #RUN a2enconf php8.3-fpm
+--------------------
+ERROR: failed to solve: process "/bin/bash -c a2enmod proxy_fcgi proxy" did not complete successfully: exit code: 127

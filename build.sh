@@ -19,8 +19,8 @@ echo "Building the Docker image..."
 docker build --no-cache --progress=plain -t "$IMAGE_NAME:${IMAGE_TAGS[0]}" . 2>&1 | tee build.log
 
 # Step 2: Login to DockerHub (optional, if you're already logged in, you can skip this)
-echo "Logging in to DockerHub..."
-docker login -u "$DOCKER_USERNAME"
+#echo "Logging in to DockerHub..."
+#docker login -u "$DOCKER_USERNAME"
 
 # Step 3: Tag the image with multiple tags and push each tag
 for TAG in "${IMAGE_TAGS[@]}"; do
@@ -28,10 +28,10 @@ for TAG in "${IMAGE_TAGS[@]}"; do
     echo "Tagging the image as $FULL_IMAGE_NAME"
     docker tag "$IMAGE_NAME:${IMAGE_TAGS[0]}" "$FULL_IMAGE_NAME"
 
-    echo "Pushing the image to DockerHub with tag: $TAG"
-    docker push "$FULL_IMAGE_NAME"
+    #echo "Pushing the image to DockerHub with tag: $TAG"
+    #docker push "$FULL_IMAGE_NAME"
 done
 
 # Step 4: Confirm the image was pushed successfully with all tags
-echo "Docker image pushed successfully with tags: ${IMAGE_TAGS[*]}"
+#echo "Docker image pushed successfully with tags: ${IMAGE_TAGS[*]}"
 
